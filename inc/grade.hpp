@@ -1,12 +1,12 @@
 #ifndef GRADE_HPP
 #define GRADE_HPP
-
+#include <stdlib.h>
 using namespace std;
 
 class Grade {
 
     private:
-        char **Matriz;
+       char **Matriz;
         int CoordenadaX;
         int CoordenadaY;
         int NumLinha;
