@@ -105,8 +105,11 @@ this->CoordenadaY = CoordenadaY;
 
 void Grade::ReviveCelula()
 {
-int i;
+int i=0;
 char Parada;
+char X;
+char Y;
+
 cout << "Insira as coordenadas inicias" << endl;
 
 do{
@@ -115,9 +118,11 @@ while(i < 10)
 { 
  
  cout << "Linha: "<< endl;
- setCoordenadaX(CoordenadaX);
+ cin >> X ;
+ setCoordenadaX(X);
 
  cout << "Coluna: "<<endl;
+ cin >> Y;
  setCoordenadaY(CoordenadaY);
 
 if((getCoordenadaX()*getCoordenadaY()) < (NumLinha*NumColuna))
@@ -128,10 +133,13 @@ if((getCoordenadaX()*getCoordenadaY()) < (NumLinha*NumColuna))
 }else {
 
 cout << "Coordenada invalida" << endl;
+cout <<"Digite novamente" << endl;
 
 } 
 
 i++;
+
+system("clear||cls");
 
 }
 cout << "Continuar inserindo novas coordenadas?" << endl;
