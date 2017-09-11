@@ -5,8 +5,8 @@
 Grade::Grade(){
 int i;
 int j; 
-NumLinha = 50;
-NumColuna = 50;
+this->NumLinha = 50;
+this->NumColuna = 50;
  
 Matriz =(char**)malloc(NumLinha*sizeof(sizeof(char*)));
 
@@ -107,8 +107,8 @@ void Grade::ReviveCelula()
 {
 int i=0;
 char Parada;
-char X;
-char Y;
+int X;
+int Y;
 
 cout << "Insira as coordenadas inicias" << endl;
 
@@ -118,32 +118,55 @@ while(i < 10)
 { 
  
  cout << "Linha: "<< endl;
+
  cin >> X ;
- setCoordenadaX(X);
 
- cout << "Coluna: "<<endl;
- cin >> Y;
- setCoordenadaY(CoordenadaY);
-
-if((getCoordenadaX()*getCoordenadaY()) < (NumLinha*NumColuna))
+while(X > getNumLinha())
 {
 
- Matriz[getCoordenadaX()][getCoordenadaY()]='+' ;
+cout << "Coordenada inexistente!" << endl;
 
-}else {
+cout << "Insira novamente!" << endl;
 
-cout << "Coordenada invalida" << endl;
-cout <<"Digite novamente" << endl;
+cin >> X;
 
-} 
+}
+
+cout << X << "numero" << endl;
+
+setCoordenadaX(X);
+
+ cout << "Coluna: "<< endl;
+ 
+ cin >> Y ;
+
+while(Y > getNumColuna())
+{
+
+cout << "Coordenada inexistente!" << endl;
+
+cout << "Insira novamente!" << endl;
+
+cin >> Y;
+
+}
+
+cout << Y << "numero" << endl;
+ 
+setCoordenadaY(Y);
+
 
 i++;
 
 system("clear||cls");
 
 }
+i = 0;
+
 cout << "Continuar inserindo novas coordenadas?" << endl;
+
 cout << "Digite S ou N" << endl;
+
 cin >> Parada ;
 
 }while(Parada !='N');
