@@ -116,7 +116,15 @@ do{
 
 while(i < 10) 
 { 
+
+if(i > 0){
  
+system("clear||cls");
+
+}
+
+ImprimeMatriz();
+
  cout << "Linha: "<< endl;
 
  cin >> X ;
@@ -134,7 +142,7 @@ cin >> X;
 
 cout << X << "numero" << endl;
 
-setCoordenadaX(X);
+setCoordenadaX(X-1);
 
  cout << "Coluna: "<< endl;
  
@@ -153,12 +161,13 @@ cin >> Y;
 
 cout << Y << "numero" << endl;
  
-setCoordenadaY(Y);
+setCoordenadaY(Y-1);
 
+
+Matriz[getCoordenadaX()][getCoordenadaY()] = '+' ;
 
 i++;
 
-system("clear||cls");
 
 }
 i = 0;
@@ -170,6 +179,24 @@ cout << "Digite S ou N" << endl;
 cin >> Parada ;
 
 }while(Parada !='N');
+
+}
+
+void Grade::ImprimeMatriz(){
+int i ;
+int j ;
+
+for(i = 0; i < getNumLinha() ; i++){
+
+for(j = 0; j < getNumColuna(); j++){
+
+cout << Matriz[i][j] ;
+
+}
+
+cout << endl;
+
+}
 
 }
 

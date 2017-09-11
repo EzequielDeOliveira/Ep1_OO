@@ -11,6 +11,7 @@ class Grade {
         int CoordenadaY;
         int NumLinha;
         int NumColuna;
+        
     
 
     public:
@@ -25,6 +26,8 @@ class Grade {
         int  getCoordenadaY();
         void setCoordenadaY(int CoordenadaY);
         void ReviveCelula();
+        void ImprimeMatriz();
+
 
 };
 
