@@ -28,7 +28,7 @@ Matriz[i][j] = '-' ;
 
 }
 
-
+/*
 Grade::Grade(int NumLinha , int NumColuna){
 int i;
 int j;
@@ -56,7 +56,7 @@ Matriz[i][j] = '-' ;
 
 }
 
-
+*/
 Grade::~Grade(){
 
 free(Matriz);
@@ -72,9 +72,21 @@ return NumLinha;
 
 }
 
+void Grade::setNumLinha(int NumLinha){
+
+this->NumLinha = NumLinha;
+
+}
+
 int Grade::getNumColuna(){
 
 return NumColuna;
+
+}
+
+void Grade::setNumColuna(int NumColuna){
+
+this->NumColuna = NumColuna;
 
 }
 

@@ -19,12 +19,17 @@ class Grade {
         Grade();
         Grade(int NumLinha, int NumColuna);
         ~Grade();
+
         int getNumLinha();
+
         int getNumColuna();
+
         int  getCoordenadaX();
         void setCoordenadaX(int CoordenadaX);
+
         int  getCoordenadaY();
         void setCoordenadaY(int CoordenadaY);
+
         void ReviveCelula();
         void ImprimeMatriz();
 
