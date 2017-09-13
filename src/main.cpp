@@ -7,6 +7,7 @@ int main(){
 
 Grade grade1;
 
+grade1 = Grade(10,10); 
 
 grade1.ReviveCelula();
 

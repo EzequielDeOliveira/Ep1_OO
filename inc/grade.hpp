@@ -21,8 +21,10 @@ class Grade {
         ~Grade();
 
         int getNumLinha();
+        void setNumLinha(int NumLinha);
 
         int getNumColuna();
+        void setNumColuna(int NumColuna);
 
         int  getCoordenadaX();
         void setCoordenadaX(int CoordenadaX);

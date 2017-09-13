@@ -5,8 +5,8 @@
 Grade::Grade(){
 int i;
 int j; 
-this->NumLinha = 50;
-this->NumColuna = 50;
+setNumLinha(50);
+setNumColuna(50);
  
 Matriz =(char**)malloc(NumLinha*sizeof(sizeof(char*)));
 
@@ -28,13 +28,11 @@ Matriz[i][j] = '-' ;
 
 }
 
-/*
 Grade::Grade(int NumLinha , int NumColuna){
 int i;
 int j;
-this->NumLinha = NumLinha;
-this->NumColuna = NumColuna;
-
+setNumLinha(NumLinha);
+setNumColuna(NumColuna);
 
 Matriz =(char**)malloc(NumLinha*sizeof(sizeof(char*)));
 
@@ -48,6 +46,9 @@ for(i = 0;i < NumLinha;i++){
 
 for(j = 0; j < NumColuna;j++){
 
+
+
+
 Matriz[i][j] = '-' ;
 
 }
@@ -56,7 +57,7 @@ Matriz[i][j] = '-' ;
 
 }
 
-*/
+
 Grade::~Grade(){
 
 free(Matriz);
@@ -86,7 +87,7 @@ return NumColuna;
 
 void Grade::setNumColuna(int NumColuna){
 
-this->NumColuna = NumColuna;
+this->NumColuna=NumColuna;
 
 }
 
@@ -141,7 +142,7 @@ ImprimeMatriz();
 
  cin >> X ;
 
-while(X > getNumLinha())
+while(X > getNumLinha()||X <= 0)
 {
 
 cout << "Coordenada inexistente!" << endl;
@@ -152,7 +153,7 @@ cin >> X;
 
 }
 
-cout << X << "numero" << endl;
+
 
 setCoordenadaX(X-1);
 
@@ -160,7 +161,7 @@ setCoordenadaX(X-1);
  
  cin >> Y ;
 
-while(Y > getNumColuna())
+while(Y > getNumColuna()|| Y <= 0)
 {
 
 cout << "Coordenada inexistente!" << endl;
@@ -168,10 +169,7 @@ cout << "Coordenada inexistente!" << endl;
 cout << "Insira novamente!" << endl;
 
 cin >> Y;
-
 }
-
-cout << Y << "numero" << endl;
  
 setCoordenadaY(Y-1);
 
@@ -209,6 +207,8 @@ cout << Matriz[i][j] ;
 cout << endl;
 
 }
+
+cout << endl;
 
 }
 
