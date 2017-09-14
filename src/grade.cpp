@@ -182,14 +182,12 @@ cin >> Parada ;
 }while(Parada !='N');
 
 }
-
-
 void Grade::ImprimeMatriz(){
 int i;
 int j;
 
-for(i = 0 ; i < (getNumLinha()); i++){
-for(j = 0 ; j < (getNumColuna()); j++){
+for(i = 0 ; i < getNumLinha(); i++){
+for(j = 0 ; j < getNumColuna(); j++){
 
  cout << Matriz[i][j];
 

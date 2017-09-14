@@ -17,6 +17,7 @@ public:
   int getNumColuna();
   void setNumColuna(int NumColuna);
 
+
 };
 
 
