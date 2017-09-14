@@ -6,7 +6,7 @@ using namespace std;
 int main(){
 int a , b;
 
-Grade grade1;
+Grade grade1(100,100);
 
 //cin >> a >> b ;
 
