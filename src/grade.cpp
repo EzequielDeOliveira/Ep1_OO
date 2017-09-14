@@ -1,71 +1,63 @@
+#include "grade.hpp"
 #include <iostream>
 #include <stdlib.h>
-#include "grade.hpp"
+
+using namespace std;
 
 Grade::Grade(){
 int i;
-int j; 
+int j;
 setNumLinha(50);
 setNumColuna(50);
- 
-Matriz =(char**)malloc(NumLinha*sizeof(sizeof(char*)));
 
-for(i = 0; i < NumLinha; i++){
+Matriz = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
 
-Matriz[i] = (char*)malloc(NumColuna*sizeof(char));
+for(i = 0; i < getNumLinha() ; i++){
 
-}
-
-for(i = 0;i < NumLinha;i++){
-
-for(j = 0; j < NumColuna;j++){
-
-Matriz[i][j] = '-' ;
+Matriz[i] = (char *)malloc(getNumColuna()*sizeof(char));
 
 }
 
-}
+for(i = 0 ; i < getNumLinha() ; i++){
+for(j = 0 ; j < getNumColuna() ; j++){
 
-}
+  Matriz[i][j] = '-';
 
-Grade::Grade(int NumLinha , int NumColuna){
-int i;
-int j;
-setNumLinha(NumLinha);
-setNumColuna(NumColuna);
+ }
+  }
+    }
 
-Matriz =(char**)malloc(NumLinha*sizeof(sizeof(char*)));
+    Grade::Grade(int NumLinha , int NumColuna){
+    int i;
+    int j;
+    setNumLinha(NumLinha);
+    setNumColuna(NumColuna);
 
-for(i = 0; i < NumLinha; i++){
+    Matriz = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
 
-Matriz[i] = (char*)malloc(NumColuna*sizeof(char));
+    for(i = 0; i < getNumLinha() ; i++){
 
-}
+    Matriz[i] = (char *)malloc(getNumColuna()*sizeof(char));
 
-for(i = 0;i < NumLinha;i++){
+    }
 
-for(j = 0; j < NumColuna;j++){
+    for(i = 0 ; i < getNumLinha() ; i++){
+    for(j = 0 ; j < getNumColuna() ; j++){
 
+      Matriz[i][j] = '-';
 
+     }
+      }
+        }
 
-
-Matriz[i][j] = '-' ;
-
-}
-
-}
-
-}
 
 
 Grade::~Grade(){
 
-free(Matriz);
- 
-Matriz=NULL;
+  free(Matriz);
+  Matriz = NULL;
 
 }
-
 
 int Grade::getNumLinha(){
 
@@ -87,7 +79,7 @@ return NumColuna;
 
 void Grade::setNumColuna(int NumColuna){
 
-this->NumColuna=NumColuna;
+this->NumColuna = NumColuna;
 
 }
 
@@ -123,15 +115,17 @@ char Parada;
 int X;
 int Y;
 
+ImprimeMatriz();
+
 cout << "Insira as coordenadas inicias" << endl;
 
 do{
 
-while(i < 10) 
-{ 
+while(i < 10)
+{
 
 if(i > 0){
- 
+
 system("clear||cls");
 
 }
@@ -152,13 +146,10 @@ cout << "Insira novamente!" << endl;
 cin >> X;
 
 }
-
-
-
 setCoordenadaX(X-1);
 
  cout << "Coluna: "<< endl;
- 
+
  cin >> Y ;
 
 while(Y > getNumColuna()|| Y <= 0)
@@ -170,7 +161,7 @@ cout << "Insira novamente!" << endl;
 
 cin >> Y;
 }
- 
+
 setCoordenadaY(Y-1);
 
 
@@ -192,23 +183,19 @@ cin >> Parada ;
 
 }
 
+
 void Grade::ImprimeMatriz(){
-int i ;
-int j ;
+int i;
+int j;
 
-for(i = 0; i < getNumLinha() ; i++){
+for(i = 0 ; i < (getNumLinha()); i++){
+for(j = 0 ; j < (getNumColuna()); j++){
 
-for(j = 0; j < getNumColuna(); j++){
+ cout << Matriz[i][j];
 
-cout << Matriz[i][j] ;
+   }
 
-}
+   cout << endl;
 
-cout << endl;
-
-}
-
-cout << endl;
-
-}
-
+     }
+        }

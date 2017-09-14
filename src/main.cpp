@@ -4,12 +4,15 @@
 using namespace std;
 
 int main(){
+int a , b;
 
 Grade grade1;
 
-grade1 = Grade(10,10); 
+//cin >> a >> b ;
 
-grade1.ReviveCelula();
+//grade1 = Grade(a,b);
+
+grade1.ImprimeMatriz();
 
 return 0;
 }
