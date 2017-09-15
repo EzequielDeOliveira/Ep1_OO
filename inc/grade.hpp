@@ -38,6 +38,11 @@ class Grade : public FormaGenerica{
         void RecebeBlinker();
         void RecebeGlider();
 
+        void PrimeiraRegra();
+        void SegundaRegra();
+        void TerceiraRegra();
+        void QuartaRegra(); 
+
 
 
 

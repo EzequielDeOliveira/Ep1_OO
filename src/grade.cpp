@@ -30,8 +30,8 @@ for(j = 0 ; j < getNumColuna() ; j++){
     Grade::Grade(int NumLinha , int NumColuna){
     int i;
     int j;
-    setNumLinha(NumLinha);
-    setNumColuna(NumColuna);
+    setNumLinha(NumLinha+2);
+    setNumColuna(NumColuna+2);
 
     Matriz = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
 
@@ -44,13 +44,19 @@ for(j = 0 ; j < getNumColuna() ; j++){
     for(i = 0 ; i < getNumLinha() ; i++){
     for(j = 0 ; j < getNumColuna() ; j++){
 
+if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna() - 1)
+{
+
+Matriz[i][j] = ' ';
+
+}else {
+
       Matriz[i][j] = '-';
 
      }
       }
-
-
         }
+}
 
 
 
@@ -125,7 +131,7 @@ cout << "Insira novamente!" << endl;
 cin >> X;
 
 }
-setCoordenadaX(X-1);
+setCoordenadaX(X);
 
  cout << "Coluna: "<< endl;
 
@@ -141,7 +147,7 @@ cout << "Insira novamente!" << endl;
 cin >> Y;
 }
 
-setCoordenadaY(Y-1);
+setCoordenadaY(Y);
 
 
 Matriz[getCoordenadaX()][getCoordenadaY()] = '+' ;
@@ -266,5 +272,301 @@ void Grade::RecebeGlider(){
 
 
 glider.PassaMatriz(Matriz,X+1,Y+1);
+
+}
+
+void Grade::PrimeiraRegra(){
+int i;
+int j;
+int ContaVidas = 0;
+
+for(i = 0; i < getNumLinha() ; i++){
+
+for(j = 0; j < getNumColuna();j++){
+
+if(Matriz[i][j] == '+')
+{
+
+if(Matriz[i-1][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i-1][j] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i-1][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+}
+
+if(ContaVidas < 2 ){
+
+Matriz[i][j] = '-';
+
+}
+
+}
+
+}
+
+}
+
+void Grade::SegundaRegra(){
+int i;
+int j;
+int ContaVidas = 0;
+
+for(i = 0; i < getNumLinha() ; i++){
+
+for(j = 0; j < getNumColuna();j++){
+
+if(Matriz[i][j] == '+')
+{
+
+if(Matriz[i-1][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i-1][j] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i-1][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+}
+
+if(ContaVidas > 3 ){
+
+Matriz[i][j] = '-';
+
+}
+
+}
+
+}
+
+}
+
+void Grade::TerceiraRegra(){
+int i;
+int j;
+int ContaVidas = 0;
+
+for(i = 0; i < getNumLinha() ; i++){
+
+for(j = 0; j < getNumColuna();j++){
+
+if(Matriz[i][j] == '-')
+{
+
+if(Matriz[i-1][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i-1][j] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i-1][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+}
+
+if(ContaVidas == 3 ){
+
+Matriz[i][j] = '+';
+
+}
+
+}
+
+}
+
+}
+
+void Grade::QuartaRegra(){
+int i;
+int j;
+int ContaVidas = 0;
+
+for(i = 0; i < getNumLinha() ; i++){
+
+for(j = 0; j < getNumColuna();j++){
+
+if(Matriz[i][j] == '+')
+{
+
+if(Matriz[i-1][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i-1][j] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i-1][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[i+1][j+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+}
+
+if(ContaVidas == 2 || ContaVidas == 3){
+
+Matriz[i][j] = '+';
+
+}
+
+}
+
+}
 
 }
