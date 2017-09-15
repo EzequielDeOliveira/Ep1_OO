@@ -1,10 +1,9 @@
 #ifndef GRADE_HPP
 #define GRADE_HPP
+#include "block.hpp"
 #include <stdlib.h>
 #include "formagenerica.hpp"
-#include "block.hpp"
-#include "blinker.hpp"
-#include "glider.hpp"
+
 
 using namespace std;
 
@@ -14,9 +13,7 @@ class Grade : public FormaGenerica{
        char **Matriz;
         int CoordenadaX;
         int CoordenadaY;
-        Block FormaBlock;
-        Blinker FormaBliker;
-        Glider FormaGlider;
+        Block block1;
 
 
 
@@ -34,6 +31,11 @@ class Grade : public FormaGenerica{
 
         void ReviveCelula();
         void ImprimeMatriz();
+
+        void RecebeBlock();
+
+
+
 
 
 };

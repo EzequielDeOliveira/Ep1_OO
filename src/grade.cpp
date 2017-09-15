@@ -176,3 +176,9 @@ for(j = 0 ; j < getNumColuna(); j++){
 
      }
         }
+      void  Grade::RecebeBlock(){
+
+block1.PassaMatriz(Matriz , 4 , 4);
+
+
+}
