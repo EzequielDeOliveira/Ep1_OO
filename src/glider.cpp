@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Glider::Glider(int forma){
+Glider::Glider(){
 
 int i;
 int j;
@@ -32,52 +32,58 @@ Matriz[i][j] = '-';
 }
 
 
-switch(forma)
-{
-
-case 1:
-
-Matriz[0][1] = '+';
-Matriz[1][2] = '+';
-Matriz[2][0] = '+';
-Matriz[2][1] = '+';
-Matriz[2][2] = '+';
-     break;
-case 2:
-Matriz[0][0] = '+';
-Matriz[1][1] = '+';
-Matriz[2][1] = '+';
-Matriz[0][2] = '+';
-Matriz[1][2] = '+';
-
-    break;
-case 3:
-Matriz[1][0] = '+';
-Matriz[2][1] = '+';
-Matriz[0][2] = '+';
-Matriz[1][2] = '+';
-Matriz[2][2] = '+';
-
-    break;
-case 4:
-Matriz[0][0] = '+';
-Matriz[2][0] = '+';
-Matriz[2][1] = '+';
-Matriz[1][1] = '+';
-Matriz[1][2] = '+';
-     break;
-default:
-      cout << "forma inexistente" << endl;
-
-}
-
-
-
 }
 
 Glider::~Glider(){
 
 free(Matriz);
 Matriz = NULL;
+
+}
+
+void Glider::SelecionaForma(int forma){
+
+
+  switch(forma)
+  {
+
+  case 1:
+
+  Matriz[0][1] = '+';
+  Matriz[1][2] = '+';
+  Matriz[2][0] = '+';
+  Matriz[2][1] = '+';
+  Matriz[2][2] = '+';
+       break;
+  case 2:
+  Matriz[0][0] = '+';
+  Matriz[1][1] = '+';
+  Matriz[2][1] = '+';
+  Matriz[0][2] = '+';
+  Matriz[1][2] = '+';
+
+      break;
+  case 3:
+  Matriz[1][0] = '+';
+  Matriz[2][1] = '+';
+  Matriz[0][2] = '+';
+  Matriz[1][2] = '+';
+  Matriz[2][2] = '+';
+
+      break;
+  case 4:
+  Matriz[0][0] = '+';
+  Matriz[2][0] = '+';
+  Matriz[2][1] = '+';
+  Matriz[1][1] = '+';
+  Matriz[1][2] = '+';
+       break;
+  default:
+        cout << "forma inexistente" << endl;
+
+  }
+
+
+
 
 }

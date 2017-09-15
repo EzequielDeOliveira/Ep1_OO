@@ -48,6 +48,8 @@ for(j = 0 ; j < getNumColuna() ; j++){
 
      }
       }
+
+
         }
 
 
@@ -59,29 +61,6 @@ Grade::~Grade(){
 
 }
 
-int Grade::getNumLinha(){
-
-return NumLinha;
-
-}
-
-void Grade::setNumLinha(int NumLinha){
-
-this->NumLinha = NumLinha;
-
-}
-
-int Grade::getNumColuna(){
-
-return NumColuna;
-
-}
-
-void Grade::setNumColuna(int NumColuna){
-
-this->NumColuna = NumColuna;
-
-}
 
 int Grade::getCoordenadaX(){
 

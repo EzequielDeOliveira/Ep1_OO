@@ -7,8 +7,10 @@ private:
   char **Matriz;
 
 public:
-Glider(int forma);
+Glider();
 ~Glider();
+
+void SelecionaForma(int forma);
 
 
 };

@@ -1,30 +1,30 @@
 #ifndef GRADE_HPP
 #define GRADE_HPP
 #include <stdlib.h>
+#include "formagenerica.hpp"
+#include "block.hpp"
+#include "blinker.hpp"
+#include "glider.hpp"
+
 using namespace std;
 
-class Grade {
+class Grade : public FormaGenerica{
 
     private:
        char **Matriz;
         int CoordenadaX;
         int CoordenadaY;
-        int NumLinha;
-        int NumColuna;
-        
-    
+        Block FormaBlock;
+        Blinker FormaBliker;
+        Glider FormaGlider;
+
+
 
     public:
-    
+
         Grade();
         Grade(int NumLinha, int NumColuna);
         ~Grade();
-
-        int getNumLinha();
-        void setNumLinha(int NumLinha);
-
-        int getNumColuna();
-        void setNumColuna(int NumColuna);
 
         int  getCoordenadaX();
         void setCoordenadaX(int CoordenadaX);
@@ -38,7 +38,7 @@ class Grade {
 
 };
 
-        
+
 
 
 #endif
