@@ -7,14 +7,14 @@ using namespace std;
 Block::Block(){
 int i;
 int j;
-setNumLinha(3);
-setNumColuna(3);
+setNumLinha(2);
+setNumColuna(2);
 
-Matriz =(char**)malloc(3*sizeof(sizeof(char*)));
+Matriz =(char**)malloc(getNumLinha()*sizeof(sizeof(char*)));
 
 for(i = 0 ; i < getNumLinha(); i++){
 
-Matriz[i] = (char *)malloc(3*sizeof(char));
+Matriz[i] = (char *)malloc(getNumColuna()*sizeof(char));
 
 }
 
@@ -28,11 +28,22 @@ Matriz[i][j] = '-';
 
 }
 
+Matriz[0][0] = '+';
 Matriz[0][1] = '+';
-Matriz[0][2] = '+';
+Matriz[1][0] = '+';
 Matriz[1][1] = '+';
-Matriz[1][2] = '+';
 
+for(i = 0 ; i < getNumLinha() ; i++){
+
+for(j = 0 ; j < getNumColuna() ; j++){
+
+cout << Matriz[i][j];
+
+}
+
+cout << endl;
+
+}
 
 }
 
