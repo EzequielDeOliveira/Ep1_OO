@@ -13,6 +13,8 @@ private:
     Blinker();
    ~Blinker();
 
+   void PassaMatriz(char ** Matriz, int LinhaInicial, int ColunaInicial);
+
 
 
 

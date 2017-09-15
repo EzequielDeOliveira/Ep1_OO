@@ -11,6 +11,7 @@ Glider();
 ~Glider();
 
 void SelecionaForma(int forma);
+void PassaMatriz(char ** Matriz, int LinhaInicial , int ColunaInicial);
 
 
 };

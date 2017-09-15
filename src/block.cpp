@@ -49,7 +49,7 @@ void Block::PassaMatriz(char**Matriz, int LinhaInicial , int ColunaInicial){
 int i;
 int j;
 int ValorInicial = LinhaInicial;
-cout << LinhaInicial << ColunaInicial << endl;
+
 
 for(i = 0; i < getNumLinha(); i++ ){
 
@@ -58,10 +58,10 @@ for(j = 0 ; j < getNumColuna(); j++){
 Matriz[LinhaInicial][ColunaInicial] = this->Matriz[i][j];
 
 
-  LinhaInicial++;
+ColunaInicial++;
 }
-  LinhaInicial = ValorInicial;
-  ColunaInicial++;
+ColunaInicial = ValorInicial;
+LinhaInicial++;
 }
 
 

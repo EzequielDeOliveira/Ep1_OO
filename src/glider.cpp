@@ -83,7 +83,33 @@ void Glider::SelecionaForma(int forma){
 
   }
 
+}
+
+void Glider::PassaMatriz(char** Matriz, int LinhaInicial,int ColunaInicial){
+int forma;
+cout << "De 1 a 4 digite qual o eu Glider:  " << endl;
+cin >> forma;
+SelecionaForma(forma);
+
+int i;
+int j;
+int ValorInicial = LinhaInicial;
 
 
+for(i = 0; i < getNumLinha(); i++ ){
+
+for(j = 0 ; j < getNumColuna(); j++){
+
+Matriz[LinhaInicial][ColunaInicial] = this->Matriz[i][j];
+
+
+ColunaInicial++;
+}
+ColunaInicial = ValorInicial;
+LinhaInicial++;
+}
+
+
+cout << LinhaInicial << ColunaInicial << endl;
 
 }

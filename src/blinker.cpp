@@ -44,3 +44,12 @@ free(Matriz);
 Matriz = NULL;
 
 }
+
+void Blinker::PassaMatriz(char **Matriz,int LinhaInicial,int ColunaInicial){
+
+Matriz[LinhaInicial][ColunaInicial] = '+';
+Matriz[LinhaInicial+1][ColunaInicial] = '+';
+Matriz[LinhaInicial+2][ColunaInicial] = '+';
+
+
+}

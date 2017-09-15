@@ -176,9 +176,95 @@ for(j = 0 ; j < getNumColuna(); j++){
 
      }
         }
-      void  Grade::RecebeBlock(){
+void  Grade::RecebeBlock(){
+int X;
+int Y;
+cout << "posições inicias do block" << endl;
+cout << "X: ";
+cin >> X ;
+while(X > getNumLinha() || X <= 0){
 
-block1.PassaMatriz(Matriz , 4 , 4);
+cout << "Coordenada inexistente" << endl;
+cout << " Insira um valor valido" << endl;
+cin >> X;
 
+}
+
+cout << "Y: ";
+cin >> Y ;
+while(Y > getNumLinha() || Y <= 0){
+
+cout << "Coordenada inexistente" << endl;
+cout << " Insira um valor valido" << endl;
+cin >> Y;
+
+}
+
+
+
+
+block.PassaMatriz(Matriz , X-1 , Y-1);
+
+
+}
+
+void Grade::RecebeBlinker(){
+int X;
+int Y;
+cout << "Insira as coordenadas inicias do Blinker" << endl;
+cout << "X: ";
+cin >> X;
+while(X > getNumLinha() || X <= 0){
+
+cout << "Coordenada inexistente" << endl;
+cout << "Insira uma coordenada valida" << endl;
+cout << "X: ";
+cin >> X;
+
+}
+
+cout << "Y: ";
+cin >> Y;
+while(Y > getNumLinha() || Y <= 0){
+
+cout << "Coordenada inexistente" << endl;
+cout << "Insira uma coordenada valida" << endl;
+cout << "Y: ";
+cin >> Y;
+
+}
+
+blinker.PassaMatriz(Matriz,X-1,Y-1);
+
+}
+
+void Grade::RecebeGlider(){
+  int X;
+  int Y;
+  cout << "Insira as coordenadas inicias do Glider" << endl;
+  cout << "X: ";
+  cin >> X;
+  while(X > getNumLinha() || X <= 0){
+
+  cout << "Coordenada inexistente" << endl;
+  cout << "Insira uma coordenada valida" << endl;
+  cout << "X: ";
+  cin >> X;
+
+  }
+
+  cout << "Y: ";
+  cin >> Y;
+  while(Y > getNumLinha() || Y <= 0){
+
+  cout << "Coordenada inexistente" << endl;
+  cout << "Insira uma coordenada valida" << endl;
+  cout << "Y: ";
+  cin >> Y;
+
+  }
+
+
+glider.PassaMatriz(Matriz,X+1,Y+1);
 
 }
