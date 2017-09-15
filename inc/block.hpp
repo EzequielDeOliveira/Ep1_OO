@@ -13,7 +13,7 @@ private:
    Block();
   ~Block();
 
-
+   void PassaMatriz(char ** Matriz, int LinhaInicial , int ColunaInicial);
 
 
 };

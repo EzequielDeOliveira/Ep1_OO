@@ -5,6 +5,8 @@
 using namespace std;
 
 Block::Block(){
+
+
 int i;
 int j;
 setNumLinha(2);
@@ -33,17 +35,6 @@ Matriz[0][1] = '+';
 Matriz[1][0] = '+';
 Matriz[1][1] = '+';
 
-for(i = 0 ; i < getNumLinha() ; i++){
-
-for(j = 0 ; j < getNumColuna() ; j++){
-
-cout << Matriz[i][j];
-
-}
-
-cout << endl;
-
-}
 
 }
 
@@ -51,5 +42,29 @@ Block::~Block(){
 
 free(Matriz);
 Matriz = NULL;
+
+}
+
+void Block::PassaMatriz(char**Matriz, int LinhaInicial , int ColunaInicial){
+int i;
+int j;
+int ValorInicial = LinhaInicial;
+cout << LinhaInicial << ColunaInicial << endl;
+
+for(i = 0; i < getNumLinha(); i++ ){
+
+for(j = 0 ; j < getNumColuna(); j++){
+
+Matriz[LinhaInicial][ColunaInicial] = this->Matriz[i][j];
+
+
+  LinhaInicial++;
+}
+  LinhaInicial = ValorInicial;
+  ColunaInicial++;
+}
+
+
+cout << LinhaInicial << ColunaInicial << endl;
 
 }
