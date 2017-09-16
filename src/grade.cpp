@@ -7,8 +7,8 @@ using namespace std;
 Grade::Grade(){
 int i;
 int j;
-setNumLinha(50);
-setNumColuna(50);
+setNumLinha(50+2);
+setNumColuna(50+2);
 
 Matriz = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
 
@@ -21,11 +21,20 @@ Matriz[i] = (char *)malloc(getNumColuna()*sizeof(char));
 for(i = 0 ; i < getNumLinha() ; i++){
 for(j = 0 ; j < getNumColuna() ; j++){
 
+if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna()-1)
+{
+
+Matriz[i][j] = ' ';
+
+}else {
+
   Matriz[i][j] = '-';
 
  }
   }
     }
+}
+
 
     Grade::Grade(int NumLinha , int NumColuna){
     int i;
@@ -44,7 +53,7 @@ for(j = 0 ; j < getNumColuna() ; j++){
     for(i = 0 ; i < getNumLinha() ; i++){
     for(j = 0 ; j < getNumColuna() ; j++){
 
-if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna() - 1)
+if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna()-1)
 {
 
 Matriz[i][j] = ' ';
@@ -100,13 +109,12 @@ char Parada;
 int X;
 int Y;
 
-ImprimeMatriz();
 
 cout << "Insira as coordenadas inicias" << endl;
 
 do{
 
-while(i < 10)
+while(i < 3)
 {
 
 if(i > 0){
@@ -121,7 +129,7 @@ ImprimeMatriz();
 
  cin >> X ;
 
-while(X > getNumLinha()||X <= 0)
+while(X > (getNumLinha()-2)||X <= 0)
 {
 
 cout << "Coordenada inexistente!" << endl;
@@ -137,7 +145,7 @@ setCoordenadaX(X);
 
  cin >> Y ;
 
-while(Y > getNumColuna()|| Y <= 0)
+while(Y > getNumColuna()-2|| Y <= 0)
 {
 
 cout << "Coordenada inexistente!" << endl;
@@ -275,298 +283,138 @@ glider.PassaMatriz(Matriz,X+1,Y+1);
 
 }
 
-void Grade::PrimeiraRegra(){
+int Grade::VerificaCelula(int NumLinha ,int NumColuna){
+
+int ContaVidas = 0;
+if(Matriz[NumLinha][NumColuna]  == ' '){
+
+return ContaVidas;
+
+}
+if(Matriz[NumLinha][NumColuna]  == '+' || Matriz[NumLinha][NumColuna]  == '-'){
+
+ if(Matriz[NumLinha-1][NumColuna-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+ if(Matriz[NumLinha-1][NumColuna] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[NumLinha-1][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+ if(Matriz[NumLinha][NumColuna-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+if(Matriz[NumLinha][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+ if(Matriz[NumLinha+1][NumColuna-1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+ if(Matriz[NumLinha+1][NumColuna] == '+'){
+
+ContaVidas += 1;
+
+}
+
+ if(Matriz[NumLinha+1][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+
+}
+
+return ContaVidas;
+
+}
+
+}
+
+
+
+void Grade::AtualizaCelula(int NumVizinho,int NumLinha , int NumColuna){
+
+if(NumVizinho == 0){
+
+Matriz[NumLinha][NumColuna] = ' ';
+
+}
+
+if(NumVizinho < 2){
+if(Matriz[NumLinha][NumColuna] == '+'){
+
+Matriz[NumLinha][NumColuna] = '-';
+
+}
+
+}
+
+if(NumVizinho > 3){
+  if(Matriz[NumLinha][NumColuna] == '+'){
+
+  Matriz[NumLinha][NumColuna] = '-';
+
+  }
+
+}
+
+if(NumVizinho == 3){
+if(Matriz[NumLinha][NumColuna] == '-'){
+
+  Matriz[NumLinha][NumColuna] = '+';
+
+  }
+
+}
+
+if(NumVizinho == 2 || NumVizinho == 3){
+
+if(Matriz[NumLinha][NumColuna] == '+'){
+
+  Matriz[NumLinha][NumColuna] = '+';
+
+  }
+
+}
+
+
+}
+
+void Grade::CicloDeVida(){
 int i;
 int j;
-int ContaVidas = 0;
+int NumVizinho ;
 
-for(i = 0; i < getNumLinha() ; i++){
+for(i = 0;i < getNumLinha() ;i++){
 
-for(j = 0; j < getNumColuna();j++){
+for(j = 0; j < getNumColuna() ; j++){
 
-if(Matriz[i][j] == '+')
-{
+NumVizinho = VerificaCelula(i , j);
 
-if(Matriz[i-1][j-1] == '+'){
+cout << VerificaCelula(i , j) << endl;
 
-ContaVidas += 1;
-
-}
-
-if(Matriz[i-1][j] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i-1][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j+1] == '+'){
-
-ContaVidas += 1;
+AtualizaCelula(NumVizinho,i,j);
 
 }
 
 }
 
-if(ContaVidas < 2 ){
-
-Matriz[i][j] = '-';
-
-}
-
-}
-
-}
-
-}
-
-void Grade::SegundaRegra(){
-int i;
-int j;
-int ContaVidas = 0;
-
-for(i = 0; i < getNumLinha() ; i++){
-
-for(j = 0; j < getNumColuna();j++){
-
-if(Matriz[i][j] == '+')
-{
-
-if(Matriz[i-1][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i-1][j] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i-1][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-}
-
-if(ContaVidas > 3 ){
-
-Matriz[i][j] = '-';
-
-}
-
-}
-
-}
-
-}
-
-void Grade::TerceiraRegra(){
-int i;
-int j;
-int ContaVidas = 0;
-
-for(i = 0; i < getNumLinha() ; i++){
-
-for(j = 0; j < getNumColuna();j++){
-
-if(Matriz[i][j] == '-')
-{
-
-if(Matriz[i-1][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i-1][j] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i-1][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-}
-
-if(ContaVidas == 3 ){
-
-Matriz[i][j] = '+';
-
-}
-
-}
-
-}
-
-}
-
-void Grade::QuartaRegra(){
-int i;
-int j;
-int ContaVidas = 0;
-
-for(i = 0; i < getNumLinha() ; i++){
-
-for(j = 0; j < getNumColuna();j++){
-
-if(Matriz[i][j] == '+')
-{
-
-if(Matriz[i-1][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i-1][j] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i-1][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j-1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j] == '+'){
-
-ContaVidas += 1;
-
-}
-
-if(Matriz[i+1][j+1] == '+'){
-
-ContaVidas += 1;
-
-}
-
-}
-
-if(ContaVidas == 2 || ContaVidas == 3){
-
-Matriz[i][j] = '+';
-
-}
-
-}
-
-}
 
 }
