@@ -13,6 +13,7 @@ class Grade : public FormaGenerica{
 
     private:
        char **Matriz;
+       char **MatrizAux;
         int CoordenadaX;
         int CoordenadaY;
         Block block;

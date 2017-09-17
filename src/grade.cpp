@@ -1,6 +1,7 @@
 #include "grade.hpp"
 #include <iostream>
 #include <stdlib.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -18,6 +19,15 @@ Matriz[i] = (char *)malloc(getNumColuna()*sizeof(char));
 
 }
 
+MatrizAux = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
+
+for(i = 0; i < getNumLinha() ; i++){
+
+MatrizAux[i] = (char *)malloc(getNumColuna()*sizeof(char));
+
+}
+
+
 for(i = 0 ; i < getNumLinha() ; i++){
 for(j = 0 ; j < getNumColuna() ; j++){
 
@@ -33,6 +43,22 @@ Matriz[i][j] = ' ';
  }
   }
     }
+
+    for(i = 0 ; i < getNumLinha() ; i++){
+    for(j = 0 ; j < getNumColuna() ; j++){
+
+    if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna()-1)
+    {
+
+    MatrizAux[i][j] = ' ';
+
+    }else {
+
+      MatrizAux[i][j] = '-';
+
+     }
+      }
+        }
 }
 
 
@@ -50,6 +76,15 @@ Matriz[i][j] = ' ';
 
     }
 
+    MatrizAux = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
+
+    for(i = 0; i < getNumLinha() ; i++){
+
+    MatrizAux[i] = (char *)malloc(getNumColuna()*sizeof(char));
+
+    }
+
+
     for(i = 0 ; i < getNumLinha() ; i++){
     for(j = 0 ; j < getNumColuna() ; j++){
 
@@ -65,6 +100,22 @@ Matriz[i][j] = ' ';
      }
       }
         }
+
+        for(i = 0 ; i < getNumLinha() ; i++){
+        for(j = 0 ; j < getNumColuna() ; j++){
+
+    if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna()-1)
+    {
+
+    MatrizAux[i][j] = ' ';
+
+    }else {
+
+          MatrizAux[i][j] = '-';
+
+         }
+          }
+            }
 }
 
 
@@ -72,7 +123,9 @@ Matriz[i][j] = ' ';
 Grade::~Grade(){
 
   free(Matriz);
+  free(MatrizAux);
   Matriz = NULL;
+  MatrizAux = NULL;
 
 }
 
@@ -114,16 +167,15 @@ cout << "Insira as coordenadas inicias" << endl;
 
 do{
 
-while(i < 3)
+while(i < 35)
 {
 
-if(i > 0){
+if(i == 0){
 
 system("clear||cls");
 
 }
 
-ImprimeMatriz();
 
  cout << "Linha: "<< endl;
 
@@ -162,9 +214,13 @@ Matriz[getCoordenadaX()][getCoordenadaY()] = '+' ;
 
 i++;
 
+system("clear||cls");
+
+ImprimeMatriz();
 
 }
 i = 0;
+
 
 cout << "Continuar inserindo novas coordenadas?" << endl;
 
@@ -288,14 +344,14 @@ int Grade::VerificaCelula(int NumLinha ,int NumColuna){
 int ContaVidas = 0;
 if(Matriz[NumLinha][NumColuna]  == ' '){
 
-return ContaVidas;
+return 10;
 
-}
-if(Matriz[NumLinha][NumColuna]  == '+' || Matriz[NumLinha][NumColuna]  == '-'){
+}else  if(Matriz[NumLinha][NumColuna]  == '+' || Matriz[NumLinha][NumColuna]  == '-'){
 
  if(Matriz[NumLinha-1][NumColuna-1] == '+'){
 
 ContaVidas += 1;
+
 
 }
 
@@ -340,7 +396,7 @@ ContaVidas += 1;
 ContaVidas += 1;
 
 }
-
+//cout << "Contavidas : " << ContaVidas << endl;
 return ContaVidas;
 
 }
@@ -351,44 +407,46 @@ return ContaVidas;
 
 void Grade::AtualizaCelula(int NumVizinho,int NumLinha , int NumColuna){
 
-if(NumVizinho == 0){
+//cout << NumVizinho << endl;
 
-Matriz[NumLinha][NumColuna] = ' ';
+if(NumVizinho == 10){
+
+MatrizAux[NumLinha][NumColuna] = ' ';
 
 }
 
 if(NumVizinho < 2){
-if(Matriz[NumLinha][NumColuna] == '+'){
+if(Matriz[NumLinha][NumColuna] == '+'||Matriz[NumLinha][NumColuna] == '-'){
 
-Matriz[NumLinha][NumColuna] = '-';
+MatrizAux[NumLinha][NumColuna] = '-';
 
 }
 
 }
 
 if(NumVizinho > 3){
-  if(Matriz[NumLinha][NumColuna] == '+'){
+  if(Matriz[NumLinha][NumColuna] == '+'||Matriz[NumLinha][NumColuna] == '-'){
 
-  Matriz[NumLinha][NumColuna] = '-';
+  MatrizAux[NumLinha][NumColuna] = '-';
 
   }
 
 }
 
 if(NumVizinho == 3){
-if(Matriz[NumLinha][NumColuna] == '-'){
+if(Matriz[NumLinha][NumColuna] == '-'||Matriz[NumLinha][NumColuna] == '+'){
 
-  Matriz[NumLinha][NumColuna] = '+';
+  MatrizAux[NumLinha][NumColuna] = '+';
 
   }
 
 }
 
-if(NumVizinho == 2 || NumVizinho == 3){
+if(NumVizinho == 2){
 
 if(Matriz[NumLinha][NumColuna] == '+'){
 
-  Matriz[NumLinha][NumColuna] = '+';
+  MatrizAux[NumLinha][NumColuna] = '+';
 
   }
 
@@ -402,13 +460,15 @@ int i;
 int j;
 int NumVizinho ;
 
+
+
 for(i = 0;i < getNumLinha() ;i++){
 
 for(j = 0; j < getNumColuna() ; j++){
 
 NumVizinho = VerificaCelula(i , j);
 
-cout << VerificaCelula(i , j) << endl;
+//cout << VerificaCelula(i , j) << endl;
 
 AtualizaCelula(NumVizinho,i,j);
 
@@ -416,5 +476,20 @@ AtualizaCelula(NumVizinho,i,j);
 
 }
 
+for(i = 0;i < getNumLinha() ;i++){
+
+for(j = 0; j < getNumColuna() ; j++){
+
+Matriz[i][j] = MatrizAux[i][j];
+
+}
+
+}
+
+ImprimeMatriz();
+
+system("clear||cls");
+
+usleep(200000);
 
 }
