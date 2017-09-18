@@ -21,6 +21,9 @@ int Parada = 1;
 
 system("clear||cls");
 
+cout << campoPadrao.getNumLinha();
+cout << campoPadrao.getNumColuna();
+
 cout << " Bem vindo(a) ao Conway's Game of Life" << endl;
 cout << endl;
 cout << "O jogo se baseia em quatro regras" << endl;

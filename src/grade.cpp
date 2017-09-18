@@ -31,90 +31,65 @@ MatrizAux[i] = (char *)malloc(getNumColuna()*sizeof(char));
 for(i = 0 ; i < getNumLinha() ; i++){
 for(j = 0 ; j < getNumColuna() ; j++){
 
-if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna()-1)
-{
-
-Matriz[i][j] = ' ';
-
-}else {
 
   Matriz[i][j] = '-';
 
  }
   }
-    }
+
 
     for(i = 0 ; i < getNumLinha() ; i++){
     for(j = 0 ; j < getNumColuna() ; j++){
 
-    if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna()-1)
-    {
-
-    MatrizAux[i][j] = ' ';
-
-    }else {
 
       MatrizAux[i][j] = '-';
 
      }
       }
-        }
+
 }
 
 
     Grade::Grade(int NumLinha , int NumColuna){
-    int i;
-    int j;
-    setNumLinha(NumLinha+2);
-    setNumColuna(NumColuna+2);
+      int i;
+      int j;
+      setNumLinha(NumLinha+2);
+      setNumColuna(NumColuna+2);
 
-    Matriz = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
+      Matriz = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
 
-    for(i = 0; i < getNumLinha() ; i++){
+      for(i = 0; i < getNumLinha() ; i++){
 
-    Matriz[i] = (char *)malloc(getNumColuna()*sizeof(char));
+      Matriz[i] = (char *)malloc(getNumColuna()*sizeof(char));
 
-    }
-
-    MatrizAux = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
-
-    for(i = 0; i < getNumLinha() ; i++){
-
-    MatrizAux[i] = (char *)malloc(getNumColuna()*sizeof(char));
-
-    }
-
-
-    for(i = 0 ; i < getNumLinha() ; i++){
-    for(j = 0 ; j < getNumColuna() ; j++){
-
-if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna()-1)
-{
-
-Matriz[i][j] = ' ';
-
-}else {
-
-      Matriz[i][j] = '-';
-
-     }
       }
+
+      MatrizAux = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
+
+      for(i = 0; i < getNumLinha() ; i++){
+
+      MatrizAux[i] = (char *)malloc(getNumColuna()*sizeof(char));
+
+      }
+
+
+      for(i = 0 ; i < getNumLinha() ; i++){
+      for(j = 0 ; j < getNumColuna() ; j++){
+
+
+        Matriz[i][j] = '-';
+
+       }
         }
 
-        for(i = 0 ; i < getNumLinha() ; i++){
-        for(j = 0 ; j < getNumColuna() ; j++){
 
-    if(i  == 0 || j == 0 || i == getNumLinha()-1 || j == getNumColuna()-1)
-    {
+          for(i = 0 ; i < getNumLinha() ; i++){
+          for(j = 0 ; j < getNumColuna() ; j++){
 
-    MatrizAux[i][j] = ' ';
 
-    }else {
+            MatrizAux[i][j] = '-';
 
-          MatrizAux[i][j] = '-';
-
-         }
-          }
+           }
             }
 }
 
@@ -250,10 +225,14 @@ void Grade::ImprimeMatriz(){
 int i;
 int j;
 
-for(i = 0 ; i < getNumLinha(); i++){
-for(j = 0 ; j < getNumColuna(); j++){
+for(i = 1 ; i < getNumLinha()-1; i++){
+for(j = 1 ; j < getNumColuna()-1; j++){
+
+
 
  cout << Matriz[i][j];
+
+
 
    }
 
@@ -377,20 +356,206 @@ glider.PassaMatriz(Matriz,X,Y);
 int Grade::VerificaCelula(int NumLinha ,int NumColuna){
 
 int ContaVidas = 0;
-if(Matriz[NumLinha][NumColuna]  == ' '){
 
-return 10;
+if(NumLinha == 0 && NumColuna == 0){
 
-}else  if(Matriz[NumLinha][NumColuna]  == '+' || Matriz[NumLinha][NumColuna]  == '-'){
+  if(Matriz[NumLinha][NumColuna+1] == '+'){
 
- if(Matriz[NumLinha-1][NumColuna-1] == '+'){
+  ContaVidas += 1;
+}
+
+  if(Matriz[NumLinha+1][NumColuna] == '+'){
+
+  ContaVidas += 1;
+}
+
+  if(Matriz[NumLinha + 1][NumColuna+1] == '+'){
+
+  ContaVidas += 1;
+}
+
+return ContaVidas;
+
+}else if(NumLinha == 0 && NumColuna == getNumColuna() - 1){
+
+  if(Matriz[NumLinha][NumColuna-1] == '+'){
+
+  ContaVidas += 1;
+}
+
+if(Matriz[NumLinha+1][NumColuna-1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha+1][NumColuna] == '+'){
+
+ContaVidas += 1;
+}
+
+return ContaVidas;
+
+}else if(NumLinha == getNumLinha()  - 1 && NumColuna == getNumColuna() - 1){
+
+  if(Matriz[NumLinha - 1][NumColuna] == '+'){
+
+  ContaVidas += 1;
+}
+
+if(Matriz[NumLinha - 1][NumColuna - 1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha][NumColuna-1] == '+'){
+
+ContaVidas += 1;
+}
+
+return ContaVidas;
+
+}else if(NumLinha == getNumLinha() - 1 && NumColuna == 0){
+
+  if(Matriz[NumLinha - 1][NumColuna] == '+'){
+
+  ContaVidas += 1;
+}
+
+if(Matriz[NumLinha - 1][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+}
+if(Matriz[NumLinha][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+}
+
+return ContaVidas;
+
+}else if(NumLinha == 0 && NumColuna >= 1){
+
+  if(Matriz[NumLinha][NumColuna-1] == '+'){
+
+  ContaVidas += 1;
+}
+
+if(Matriz[NumLinha + 1][NumColuna] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha+ 1][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha + 1][NumColuna-1] == '+'){
+
+ContaVidas += 1;
+}
+
+return ContaVidas;
+
+}else if(NumLinha >= 1 && NumColuna == 0){
+
+  if(Matriz[NumLinha - 1][NumColuna ] == '+'){
+
+  ContaVidas += 1;
+}
+
+if(Matriz[NumLinha - 1][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+}
+
+
+if(Matriz[NumLinha+1][NumColuna] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha + 1][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+}
+
+return ContaVidas;
+
+}else if(NumLinha == getNumLinha() - 1 && NumColuna >= 1){
+
+  if(Matriz[NumLinha][NumColuna - 1] == '+'){
+
+  ContaVidas += 1;
+}
+
+if(Matriz[NumLinha - 1][NumColuna - 1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha - 1][NumColuna] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha - 1][NumColuna + 1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha][NumColuna+1] == '+'){
+
+ContaVidas += 1;
+}
+
+  return ContaVidas;
+
+}else if (NumLinha >= 1 && NumColuna == getNumColuna() - 1){
+
+  if(Matriz[NumLinha - 1][NumColuna] == '+'){
+
+  ContaVidas += 1;
+}
+
+if(Matriz[NumLinha - 1][NumColuna -1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha][NumColuna - 1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha + 1][NumColuna - 1] == '+'){
+
+ContaVidas += 1;
+}
+
+if(Matriz[NumLinha + 1][NumColuna] == '+'){
+
+ContaVidas += 1;
+}
+  return ContaVidas;
+}else {
+
+if(Matriz[NumLinha - 1][NumColuna -1] == '+'){
 
 ContaVidas += 1;
 
-
 }
 
- if(Matriz[NumLinha-1][NumColuna] == '+'){
+if(Matriz[NumLinha-1][NumColuna] == '+'){
 
 ContaVidas += 1;
 
@@ -431,7 +596,7 @@ ContaVidas += 1;
 ContaVidas += 1;
 
 }
-//cout << "Contavidas : " << ContaVidas << endl;
+
 return ContaVidas;
 
 }
@@ -440,15 +605,9 @@ return ContaVidas;
 
 
 
+
+
 void Grade::AtualizaCelula(int NumVizinho,int NumLinha , int NumColuna){
-
-//cout << NumVizinho << endl;
-
-if(NumVizinho == 10){
-
-MatrizAux[NumLinha][NumColuna] = ' ';
-
-}
 
 if(NumVizinho < 2){
 if(Matriz[NumLinha][NumColuna] == '+'||Matriz[NumLinha][NumColuna] == '-'){
@@ -487,8 +646,15 @@ if(Matriz[NumLinha][NumColuna] == '+'){
 
 }
 
+if(NumLinha  == 0 || NumColuna == 0 || NumLinha == getNumLinha()-1 || NumColuna == getNumColuna()-1)
+{
+
+Matriz[NumLinha][NumColuna] = '-';
 
 }
+
+}
+
 
 void Grade::CicloDeVida(){
 int i;
@@ -502,8 +668,6 @@ for(i = 0;i < getNumLinha() ;i++){
 for(j = 0; j < getNumColuna() ; j++){
 
 NumVizinho = VerificaCelula(i , j);
-
-//cout << VerificaCelula(i , j) << endl;
 
 AtualizaCelula(NumVizinho,i,j);
 
