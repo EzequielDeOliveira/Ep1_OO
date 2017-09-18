@@ -235,6 +235,17 @@ cin >> Parada ;
 system("clear||cls");
 
 }
+
+
+void Grade::ReviveCelulaCoordenada(int linha,int coluna)
+{
+setCoordenadaX(linha);
+setCoordenadaY(coluna);
+
+Matriz[getCoordenadaX()][getCoordenadaY()] = '+' ;
+
+}
+
 void Grade::ImprimeMatriz(){
 int i;
 int j;
@@ -250,37 +261,48 @@ for(j = 0 ; j < getNumColuna(); j++){
 
      }
         }
-void  Grade::RecebeBlock(int linha,int coluna){
+
+        void  Grade::RecebeBlock(){
+        int X ;
+        int Y ;
+        cout << "posições inicias do block" << endl;
+        cout << "X: ";
+        cin >> X ;
+        while(X > getNumLinha() || X <= 1){
+
+        cout << "Coordenada inexistente Coordenada inexistente ou a Coordenada não possui espaço" << endl;
+        cout << " Insira um valor valido" << endl;
+        cin >> X;
+
+        }
+
+        cout << "Y: ";
+        cin >> Y ;
+        while(Y > getNumLinha() || Y <= 1){
+
+        cout << "Coordenada inexistente ou a Coordenada não possui espaço" << endl;
+        cout << " Insira um valor valido" << endl;
+        cin >> Y;
+
+        }
+
+
+
+
+        block.PassaMatriz(Matriz , X-1 , Y-1);
+
+
+        }
+
+void  Grade::RecebeBlockCoordenada(int linha,int coluna){
 int X = linha ;
 int Y = coluna;
-//cout << "posições inicias do block" << endl;
-//cout << "X: ";
-//cin >> X ;
-//while(X > getNumLinha() || X <= 1){
-
-//cout << "Coordenada inexistente Coordenada inexistente ou a Coordenada não possui espaço" << endl;
-//cout << " Insira um valor valido" << endl;
-//cin >> X;
-
-//}
-
-//cout << "Y: ";
-//cin >> Y ;
-//while(Y > getNumLinha() || Y <= 1){
-
-//cout << "Coordenada inexistente ou a Coordenada não possui espaço" << endl;
-//cout << " Insira um valor valido" << endl;
-//cin >> Y;
-
-//}
-
-
-
 
 block.PassaMatriz(Matriz , X-1 , Y-1);
 
 
 }
+
 
 void Grade::RecebeBlinker(){
 int X;
@@ -311,6 +333,15 @@ cin >> Y;
 blinker.PassaMatriz(Matriz,X-1,Y-1);
 
 }
+
+void Grade::RecebeBlinkerCoordenada(int linha,int coluna){
+int X = linha;
+int Y = coluna;
+
+blinker.PassaMatriz(Matriz,X-1,Y-1);
+
+}
+
 
 void Grade::RecebeGlider(){
   int X;

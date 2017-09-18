@@ -33,10 +33,13 @@ class Grade : public FormaGenerica{
         void setCoordenadaY(int CoordenadaY);
 
         void ReviveCelula();
+        void ReviveCelulaCoordenada(int linha,int coluna);
         void ImprimeMatriz();
 
-        void RecebeBlock(int linha,int coluna);
+        void RecebeBlock();
+        void RecebeBlockCoordenada(int linha,int coluna);
         void RecebeBlinker();
+        void RecebeBlinkerCoordenada(int linha, int coluna);
         void RecebeGlider();
 
         int VerificaCelula(int NumLinha ,int NumColuna);
