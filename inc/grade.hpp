@@ -35,7 +35,7 @@ class Grade : public FormaGenerica{
         void ReviveCelula();
         void ImprimeMatriz();
 
-        void RecebeBlock();
+        void RecebeBlock(int linha,int coluna);
         void RecebeBlinker();
         void RecebeGlider();
 

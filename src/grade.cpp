@@ -8,8 +8,8 @@ using namespace std;
 Grade::Grade(){
 int i;
 int j;
-setNumLinha(50+2);
-setNumColuna(50+2);
+setNumLinha(40+2);
+setNumColuna(100+2);
 
 Matriz = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
 
@@ -167,12 +167,14 @@ cout << "Insira as coordenadas inicias" << endl;
 
 do{
 
-while(i < 35)
+while(i < 5)
 {
 
 if(i == 0){
 
 system("clear||cls");
+
+ImprimeMatriz();
 
 }
 
@@ -230,6 +232,8 @@ cin >> Parada ;
 
 }while(Parada !='N');
 
+system("clear||cls");
+
 }
 void Grade::ImprimeMatriz(){
 int i;
@@ -246,29 +250,29 @@ for(j = 0 ; j < getNumColuna(); j++){
 
      }
         }
-void  Grade::RecebeBlock(){
-int X;
-int Y;
-cout << "posições inicias do block" << endl;
-cout << "X: ";
-cin >> X ;
-while(X > getNumLinha() || X <= 0){
+void  Grade::RecebeBlock(int linha,int coluna){
+int X = linha ;
+int Y = coluna;
+//cout << "posições inicias do block" << endl;
+//cout << "X: ";
+//cin >> X ;
+//while(X > getNumLinha() || X <= 1){
 
-cout << "Coordenada inexistente" << endl;
-cout << " Insira um valor valido" << endl;
-cin >> X;
+//cout << "Coordenada inexistente Coordenada inexistente ou a Coordenada não possui espaço" << endl;
+//cout << " Insira um valor valido" << endl;
+//cin >> X;
 
-}
+//}
 
-cout << "Y: ";
-cin >> Y ;
-while(Y > getNumLinha() || Y <= 0){
+//cout << "Y: ";
+//cin >> Y ;
+//while(Y > getNumLinha() || Y <= 1){
 
-cout << "Coordenada inexistente" << endl;
-cout << " Insira um valor valido" << endl;
-cin >> Y;
+//cout << "Coordenada inexistente ou a Coordenada não possui espaço" << endl;
+//cout << " Insira um valor valido" << endl;
+//cin >> Y;
 
-}
+//}
 
 
 
@@ -284,7 +288,7 @@ int Y;
 cout << "Insira as coordenadas inicias do Blinker" << endl;
 cout << "X: ";
 cin >> X;
-while(X > getNumLinha() || X <= 0){
+while(X > getNumLinha() - 3|| X <= 2 ){
 
 cout << "Coordenada inexistente" << endl;
 cout << "Insira uma coordenada valida" << endl;
@@ -295,7 +299,7 @@ cin >> X;
 
 cout << "Y: ";
 cin >> Y;
-while(Y > getNumLinha() || Y <= 0){
+while(Y > getNumLinha() - 3 || Y <= 2 ){
 
 cout << "Coordenada inexistente" << endl;
 cout << "Insira uma coordenada valida" << endl;
@@ -314,7 +318,7 @@ void Grade::RecebeGlider(){
   cout << "Insira as coordenadas inicias do Glider" << endl;
   cout << "X: ";
   cin >> X;
-  while(X > getNumLinha() || X <= 0){
+  while(X > getNumLinha()-3 || X <= 0){
 
   cout << "Coordenada inexistente" << endl;
   cout << "Insira uma coordenada valida" << endl;
@@ -325,7 +329,7 @@ void Grade::RecebeGlider(){
 
   cout << "Y: ";
   cin >> Y;
-  while(Y > getNumLinha() || Y <= 0){
+  while(Y > getNumLinha()-3 || Y <= 0){
 
   cout << "Coordenada inexistente" << endl;
   cout << "Insira uma coordenada valida" << endl;
@@ -335,7 +339,7 @@ void Grade::RecebeGlider(){
   }
 
 
-glider.PassaMatriz(Matriz,X+1,Y+1);
+glider.PassaMatriz(Matriz,X,Y);
 
 }
 
@@ -485,10 +489,9 @@ Matriz[i][j] = MatrizAux[i][j];
 }
 
 }
+system("clear");
 
 ImprimeMatriz();
-
-system("clear||cls");
 
 usleep(200000);
 
