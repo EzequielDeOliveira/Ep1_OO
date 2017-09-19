@@ -32,7 +32,7 @@ for(i = 0 ; i < getNumLinha() ; i++){
 for(j = 0 ; j < getNumColuna() ; j++){
 
 
-  Matriz[i][j] = '-';
+  Matriz[i][j] = '.';
 
  }
   }
@@ -42,7 +42,7 @@ for(j = 0 ; j < getNumColuna() ; j++){
     for(j = 0 ; j < getNumColuna() ; j++){
 
 
-      MatrizAux[i][j] = '-';
+      MatrizAux[i][j] = '.';
 
      }
       }
@@ -77,7 +77,7 @@ for(j = 0 ; j < getNumColuna() ; j++){
       for(j = 0 ; j < getNumColuna() ; j++){
 
 
-        Matriz[i][j] = '-';
+        Matriz[i][j] = '.';
 
        }
         }
@@ -87,7 +87,7 @@ for(j = 0 ; j < getNumColuna() ; j++){
           for(j = 0 ; j < getNumColuna() ; j++){
 
 
-            MatrizAux[i][j] = '-';
+            MatrizAux[i][j] = '.';
 
            }
             }
@@ -187,7 +187,7 @@ cin >> Y;
 setCoordenadaY(Y);
 
 
-Matriz[getCoordenadaX()][getCoordenadaY()] = '+' ;
+Matriz[getCoordenadaX()][getCoordenadaY()] = '0' ;
 
 i++;
 
@@ -217,7 +217,7 @@ void Grade::ReviveCelulaCoordenada(int linha,int coluna)
 setCoordenadaX(linha);
 setCoordenadaY(coluna);
 
-Matriz[getCoordenadaX()][getCoordenadaY()] = '+' ;
+Matriz[getCoordenadaX()][getCoordenadaY()] = '0' ;
 
 }
 
@@ -359,17 +359,17 @@ int ContaVidas = 0;
 
 if(NumLinha == 0 && NumColuna == 0){
 
-  if(Matriz[NumLinha][NumColuna+1] == '+'){
+  if(Matriz[NumLinha][NumColuna+1] == '0'){
 
   ContaVidas += 1;
 }
 
-  if(Matriz[NumLinha+1][NumColuna] == '+'){
+  if(Matriz[NumLinha+1][NumColuna] == '0'){
 
   ContaVidas += 1;
 }
 
-  if(Matriz[NumLinha + 1][NumColuna+1] == '+'){
+  if(Matriz[NumLinha + 1][NumColuna+1] == '0'){
 
   ContaVidas += 1;
 }
@@ -378,17 +378,17 @@ return ContaVidas;
 
 }else if(NumLinha == 0 && NumColuna == getNumColuna() - 1){
 
-  if(Matriz[NumLinha][NumColuna-1] == '+'){
+  if(Matriz[NumLinha][NumColuna-1] == '0'){
 
   ContaVidas += 1;
 }
 
-if(Matriz[NumLinha+1][NumColuna-1] == '+'){
+if(Matriz[NumLinha+1][NumColuna-1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha+1][NumColuna] == '+'){
+if(Matriz[NumLinha+1][NumColuna] == '0'){
 
 ContaVidas += 1;
 }
@@ -397,17 +397,17 @@ return ContaVidas;
 
 }else if(NumLinha == getNumLinha()  - 1 && NumColuna == getNumColuna() - 1){
 
-  if(Matriz[NumLinha - 1][NumColuna] == '+'){
+  if(Matriz[NumLinha - 1][NumColuna] == '0'){
 
   ContaVidas += 1;
 }
 
-if(Matriz[NumLinha - 1][NumColuna - 1] == '+'){
+if(Matriz[NumLinha - 1][NumColuna - 1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha][NumColuna-1] == '+'){
+if(Matriz[NumLinha][NumColuna-1] == '0'){
 
 ContaVidas += 1;
 }
@@ -416,16 +416,16 @@ return ContaVidas;
 
 }else if(NumLinha == getNumLinha() - 1 && NumColuna == 0){
 
-  if(Matriz[NumLinha - 1][NumColuna] == '+'){
+  if(Matriz[NumLinha - 1][NumColuna] == '0'){
 
   ContaVidas += 1;
 }
 
-if(Matriz[NumLinha - 1][NumColuna+1] == '+'){
+if(Matriz[NumLinha - 1][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 }
-if(Matriz[NumLinha][NumColuna+1] == '+'){
+if(Matriz[NumLinha][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 }
@@ -434,27 +434,27 @@ return ContaVidas;
 
 }else if(NumLinha == 0 && NumColuna >= 1){
 
-  if(Matriz[NumLinha][NumColuna-1] == '+'){
+  if(Matriz[NumLinha][NumColuna-1] == '0'){
 
   ContaVidas += 1;
 }
 
-if(Matriz[NumLinha + 1][NumColuna] == '+'){
+if(Matriz[NumLinha + 1][NumColuna] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha+ 1][NumColuna+1] == '+'){
+if(Matriz[NumLinha+ 1][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha][NumColuna+1] == '+'){
+if(Matriz[NumLinha][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha + 1][NumColuna-1] == '+'){
+if(Matriz[NumLinha + 1][NumColuna-1] == '0'){
 
 ContaVidas += 1;
 }
@@ -463,28 +463,28 @@ return ContaVidas;
 
 }else if(NumLinha >= 1 && NumColuna == 0){
 
-  if(Matriz[NumLinha - 1][NumColuna ] == '+'){
+  if(Matriz[NumLinha - 1][NumColuna ] == '0'){
 
   ContaVidas += 1;
 }
 
-if(Matriz[NumLinha - 1][NumColuna+1] == '+'){
+if(Matriz[NumLinha - 1][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha][NumColuna+1] == '+'){
+if(Matriz[NumLinha][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 }
 
 
-if(Matriz[NumLinha+1][NumColuna] == '+'){
+if(Matriz[NumLinha+1][NumColuna] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha + 1][NumColuna+1] == '+'){
+if(Matriz[NumLinha + 1][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 }
@@ -493,27 +493,27 @@ return ContaVidas;
 
 }else if(NumLinha == getNumLinha() - 1 && NumColuna >= 1){
 
-  if(Matriz[NumLinha][NumColuna - 1] == '+'){
+  if(Matriz[NumLinha][NumColuna - 1] == '0'){
 
   ContaVidas += 1;
 }
 
-if(Matriz[NumLinha - 1][NumColuna - 1] == '+'){
+if(Matriz[NumLinha - 1][NumColuna - 1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha - 1][NumColuna] == '+'){
+if(Matriz[NumLinha - 1][NumColuna] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha - 1][NumColuna + 1] == '+'){
+if(Matriz[NumLinha - 1][NumColuna + 1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha][NumColuna+1] == '+'){
+if(Matriz[NumLinha][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 }
@@ -522,76 +522,76 @@ ContaVidas += 1;
 
 }else if (NumLinha >= 1 && NumColuna == getNumColuna() - 1){
 
-  if(Matriz[NumLinha - 1][NumColuna] == '+'){
+  if(Matriz[NumLinha - 1][NumColuna] == '0'){
 
   ContaVidas += 1;
 }
 
-if(Matriz[NumLinha - 1][NumColuna -1] == '+'){
+if(Matriz[NumLinha - 1][NumColuna -1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha][NumColuna - 1] == '+'){
+if(Matriz[NumLinha][NumColuna - 1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha + 1][NumColuna - 1] == '+'){
+if(Matriz[NumLinha + 1][NumColuna - 1] == '0'){
 
 ContaVidas += 1;
 }
 
-if(Matriz[NumLinha + 1][NumColuna] == '+'){
+if(Matriz[NumLinha + 1][NumColuna] == '0'){
 
 ContaVidas += 1;
 }
   return ContaVidas;
 }else {
 
-if(Matriz[NumLinha - 1][NumColuna -1] == '+'){
+if(Matriz[NumLinha - 1][NumColuna -1] == '0'){
 
 ContaVidas += 1;
 
 }
 
-if(Matriz[NumLinha-1][NumColuna] == '+'){
+if(Matriz[NumLinha-1][NumColuna] == '0'){
 
 ContaVidas += 1;
 
 }
 
-if(Matriz[NumLinha-1][NumColuna+1] == '+'){
+if(Matriz[NumLinha-1][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 
 }
 
- if(Matriz[NumLinha][NumColuna-1] == '+'){
+ if(Matriz[NumLinha][NumColuna-1] == '0'){
 
 ContaVidas += 1;
 
 }
 
-if(Matriz[NumLinha][NumColuna+1] == '+'){
+if(Matriz[NumLinha][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 
 }
 
- if(Matriz[NumLinha+1][NumColuna-1] == '+'){
+ if(Matriz[NumLinha+1][NumColuna-1] == '0'){
 
 ContaVidas += 1;
 
 }
 
- if(Matriz[NumLinha+1][NumColuna] == '+'){
+ if(Matriz[NumLinha+1][NumColuna] == '0'){
 
 ContaVidas += 1;
 
 }
 
- if(Matriz[NumLinha+1][NumColuna+1] == '+'){
+ if(Matriz[NumLinha+1][NumColuna+1] == '0'){
 
 ContaVidas += 1;
 
@@ -610,27 +610,27 @@ return ContaVidas;
 void Grade::AtualizaCelula(int NumVizinho,int NumLinha , int NumColuna){
 
 if(NumVizinho < 2){
-if(Matriz[NumLinha][NumColuna] == '+'||Matriz[NumLinha][NumColuna] == '-'){
+if(Matriz[NumLinha][NumColuna] == '0'||Matriz[NumLinha][NumColuna] == '.'){
 
-MatrizAux[NumLinha][NumColuna] = '-';
+MatrizAux[NumLinha][NumColuna] = '.';
 
 }
 
 }
 
 if(NumVizinho > 3){
-  if(Matriz[NumLinha][NumColuna] == '+'||Matriz[NumLinha][NumColuna] == '-'){
+  if(Matriz[NumLinha][NumColuna] == '0'||Matriz[NumLinha][NumColuna] == '.'){
 
-  MatrizAux[NumLinha][NumColuna] = '-';
+  MatrizAux[NumLinha][NumColuna] = '.';
 
   }
 
 }
 
 if(NumVizinho == 3){
-if(Matriz[NumLinha][NumColuna] == '-'||Matriz[NumLinha][NumColuna] == '+'){
+if(Matriz[NumLinha][NumColuna] == '.'||Matriz[NumLinha][NumColuna] == '0'){
 
-  MatrizAux[NumLinha][NumColuna] = '+';
+  MatrizAux[NumLinha][NumColuna] = '0';
 
   }
 
@@ -638,9 +638,9 @@ if(Matriz[NumLinha][NumColuna] == '-'||Matriz[NumLinha][NumColuna] == '+'){
 
 if(NumVizinho == 2){
 
-if(Matriz[NumLinha][NumColuna] == '+'){
+if(Matriz[NumLinha][NumColuna] == '0'){
 
-  MatrizAux[NumLinha][NumColuna] = '+';
+  MatrizAux[NumLinha][NumColuna] = '0';
 
   }
 
@@ -649,7 +649,7 @@ if(Matriz[NumLinha][NumColuna] == '+'){
 if(NumLinha  == 0 || NumColuna == 0 || NumLinha == getNumLinha()-1 || NumColuna == getNumColuna()-1)
 {
 
-Matriz[NumLinha][NumColuna] = '-';
+Matriz[NumLinha][NumColuna] = '.';
 
 }
 

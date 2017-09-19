@@ -24,16 +24,16 @@ for(i = 0 ; i < getNumLinha() ; i++){
 
 for(j = 0 ; j < getNumColuna() ; j++){
 
-Matriz[i][j] = '-';
+Matriz[i][j] = '.';
 
 }
 
 }
 
-Matriz[0][0] = '+';
-Matriz[0][1] = '+';
-Matriz[1][0] = '+';
-Matriz[1][1] = '+';
+Matriz[0][0] = '0';
+Matriz[0][1] = '0';
+Matriz[1][0] = '0';
+Matriz[1][1] = '0';
 
 
 }

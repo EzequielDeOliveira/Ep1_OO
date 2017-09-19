@@ -24,7 +24,7 @@ for(i  = 0; i < getNumLinha(); i++){
 
 for(j = 0 ; j < getNumColuna();j++){
 
-Matriz[i][j] = '-';
+Matriz[i][j] = '.';
 
 }
 
@@ -49,34 +49,34 @@ void Glider::SelecionaForma(int forma){
 
   case 1:
 
-  Matriz[0][1] = '+';
-  Matriz[1][2] = '+';
-  Matriz[2][0] = '+';
-  Matriz[2][1] = '+';
-  Matriz[2][2] = '+';
+  Matriz[0][1] = '0';
+  Matriz[1][2] = '0';
+  Matriz[2][0] = '0';
+  Matriz[2][1] = '0';
+  Matriz[2][2] = '0';
        break;
   case 2:
-  Matriz[0][0] = '+';
-  Matriz[1][1] = '+';
-  Matriz[2][1] = '+';
-  Matriz[0][2] = '+';
-  Matriz[1][2] = '+';
+  Matriz[0][0] = '0';
+  Matriz[1][1] = '0';
+  Matriz[2][1] = '0';
+  Matriz[0][2] = '0';
+  Matriz[1][2] = '0';
 
       break;
   case 3:
-  Matriz[1][0] = '+';
-  Matriz[2][1] = '+';
-  Matriz[0][2] = '+';
-  Matriz[1][2] = '+';
-  Matriz[2][2] = '+';
+  Matriz[1][0] = '0';
+  Matriz[2][1] = '0';
+  Matriz[0][2] = '0';
+  Matriz[1][2] = '0';
+  Matriz[2][2] = '0';
 
       break;
   case 4:
-  Matriz[0][0] = '+';
-  Matriz[2][0] = '+';
-  Matriz[2][1] = '+';
-  Matriz[1][1] = '+';
-  Matriz[1][2] = '+';
+  Matriz[0][0] = '0';
+  Matriz[2][0] = '0';
+  Matriz[2][1] = '0';
+  Matriz[1][1] = '0';
+  Matriz[1][2] = '0';
        break;
   default:
         cout << "forma inexistente" << endl;
