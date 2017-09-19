@@ -9,42 +9,43 @@
 
 using namespace std;
 
-class Grade : public FormaGenerica{
+class Grade : public FormaGenerica
+{
 
-    private:
-       char **Matriz;
-       char **MatrizAux;
-        int CoordenadaX;
-        int CoordenadaY;
-        Block block;
-        Blinker blinker;
-        Glider glider;
+private:
+    char **Matriz;
+    char **MatrizAux;
+    int CoordenadaX;
+    int CoordenadaY;
+    Block block;
+    Blinker blinker;
+    Glider glider;
 
-    public:
+public:
 
-        Grade();
-        Grade(int NumLinha, int NumColuna);
-        ~Grade();
+    Grade();
+    Grade(int NumLinha, int NumColuna);
+    ~Grade();
 
-        int  getCoordenadaX();
-        void setCoordenadaX(int CoordenadaX);
+    int  getCoordenadaX();
+    void setCoordenadaX(int CoordenadaX);
 
-        int  getCoordenadaY();
-        void setCoordenadaY(int CoordenadaY);
+    int  getCoordenadaY();
+    void setCoordenadaY(int CoordenadaY);
 
-        void ReviveCelula();
-        void ReviveCelulaCoordenada(int linha,int coluna);
-        void ImprimeMatriz();
+    void ReviveCelula();
+    void ReviveCelulaCoordenada(int linha,int coluna);
+    void ImprimeMatriz();
 
-        void RecebeBlock();
-        void RecebeBlockCoordenada(int linha,int coluna);
-        void RecebeBlinker();
-        void RecebeBlinkerCoordenada(int linha, int coluna);
-        void RecebeGlider();
+    void RecebeBlock();
+    void RecebeBlockCoordenada(int linha,int coluna);
+    void RecebeBlinker();
+    void RecebeBlinkerCoordenada(int linha, int coluna);
+    void RecebeGlider();
 
-        int VerificaCelula(int NumLinha ,int NumColuna);
-        void AtualizaCelula(int NumVizinho,int NumLinha , int NumColuna);
-        void CicloDeVida();
+    int VerificaCelula(int NumLinha ,int NumColuna);
+    void AtualizaCelula(int NumVizinho,int NumLinha , int NumColuna);
+    void CicloDeVida();
 
 
 

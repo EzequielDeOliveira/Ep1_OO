@@ -1,21 +1,22 @@
 #ifndef FORMAGENERICA_HPP
 #define FORMAGENERICA_HPP
 
-class FormaGenerica {
+class FormaGenerica
+{
 
 private:
-  int NumLinha;
-  int NumColuna;
+    int NumLinha;
+    int NumColuna;
 
 public:
 
-  FormaGenerica();
+    FormaGenerica();
 
-  int getNumLinha();
-  void setNumLinha(int NumLinha);
+    int getNumLinha();
+    void setNumLinha(int NumLinha);
 
-  int getNumColuna();
-  void setNumColuna(int NumColuna);
+    int getNumColuna();
+    void setNumColuna(int NumColuna);
 
 
 };

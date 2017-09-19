@@ -2,18 +2,19 @@
 #define BLOCK_HPP
 #include "formagenerica.hpp"
 
-class Block : public FormaGenerica {
+class Block : public FormaGenerica
+{
 
 private:
-   char **Matriz;
+    char **Matriz;
 
 
- public:
+public:
 
-   Block();
-  ~Block();
+    Block();
+    ~Block();
 
-   void PassaMatriz(char ** Matriz, int LinhaInicial , int ColunaInicial);
+    void PassaMatriz(char ** Matriz, int LinhaInicial , int ColunaInicial);
 
 
 };

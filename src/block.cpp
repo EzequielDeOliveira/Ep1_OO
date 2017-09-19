@@ -4,65 +4,73 @@
 
 using namespace std;
 
-Block::Block(){
+Block::Block()
+{
 
 
-int i;
-int j;
-setNumLinha(2);
-setNumColuna(2);
+    int i;
+    int j;
+    setNumLinha(2);
+    setNumColuna(2);
 
-Matriz =(char**)malloc(getNumLinha()*sizeof(sizeof(char*)));
+    Matriz =(char**)malloc(getNumLinha()*sizeof(sizeof(char*)));
 
-for(i = 0 ; i < getNumLinha(); i++){
+    for(i = 0 ; i < getNumLinha(); i++)
+    {
 
-Matriz[i] = (char *)malloc(getNumColuna()*sizeof(char));
+        Matriz[i] = (char *)malloc(getNumColuna()*sizeof(char));
+
+    }
+
+    for(i = 0 ; i < getNumLinha() ; i++)
+    {
+
+        for(j = 0 ; j < getNumColuna() ; j++)
+        {
+
+            Matriz[i][j] = '.';
+
+        }
+
+    }
+
+    Matriz[0][0] = '0';
+    Matriz[0][1] = '0';
+    Matriz[1][0] = '0';
+    Matriz[1][1] = '0';
+
 
 }
 
-for(i = 0 ; i < getNumLinha() ; i++){
+Block::~Block()
+{
 
-for(j = 0 ; j < getNumColuna() ; j++){
-
-Matriz[i][j] = '.';
-
-}
+    free(Matriz);
+    Matriz = NULL;
 
 }
 
-Matriz[0][0] = '0';
-Matriz[0][1] = '0';
-Matriz[1][0] = '0';
-Matriz[1][1] = '0';
+void Block::PassaMatriz(char**Matriz, int LinhaInicial , int ColunaInicial)
+{
+    int i;
+    int j;
+    int ValorInicial = ColunaInicial;
 
 
-}
+    for(i = 0; i < getNumLinha(); i++ )
+    {
 
-Block::~Block(){
+        for(j = 0 ; j < getNumColuna(); j++)
+        {
 
-free(Matriz);
-Matriz = NULL;
-
-}
-
-void Block::PassaMatriz(char**Matriz, int LinhaInicial , int ColunaInicial){
-int i;
-int j;
-int ValorInicial = ColunaInicial;
+            Matriz[LinhaInicial][ColunaInicial] = this->Matriz[i][j];
 
 
-for(i = 0; i < getNumLinha(); i++ ){
-
-for(j = 0 ; j < getNumColuna(); j++){
-
-Matriz[LinhaInicial][ColunaInicial] = this->Matriz[i][j];
-
-
-ColunaInicial++;
-}
-ColunaInicial = ValorInicial;
-LinhaInicial++;
-}
+            ColunaInicial++;
+        }
+        ColunaInicial = ValorInicial;
+        LinhaInicial++;
+    }
 
 
 }

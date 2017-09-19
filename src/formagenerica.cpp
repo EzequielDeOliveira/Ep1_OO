@@ -3,35 +3,40 @@
 
 using namespace std;
 
-FormaGenerica::FormaGenerica(){
+FormaGenerica::FormaGenerica()
+{
 
-NumLinha = 1;
+    NumLinha = 1;
 
-NumColuna = 1;
+    NumColuna = 1;
 
-
-}
-
-int FormaGenerica::getNumLinha(){
-
-return NumLinha;
 
 }
 
-void FormaGenerica::setNumLinha(int NumLinha){
+int FormaGenerica::getNumLinha()
+{
 
-this->NumLinha = NumLinha;
-
-}
-
-int FormaGenerica::getNumColuna(){
-
-return NumColuna;
+    return NumLinha;
 
 }
 
-void FormaGenerica::setNumColuna(int NumColuna){
+void FormaGenerica::setNumLinha(int NumLinha)
+{
 
-this->NumColuna = NumColuna;
+    this->NumLinha = NumLinha;
+
+}
+
+int FormaGenerica::getNumColuna()
+{
+
+    return NumColuna;
+
+}
+
+void FormaGenerica::setNumColuna(int NumColuna)
+{
+
+    this->NumColuna = NumColuna;
 
 }
