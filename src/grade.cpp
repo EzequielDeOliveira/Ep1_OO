@@ -749,12 +749,6 @@ void Grade::AtualizaCelula(int NumVizinho,int NumLinha , int NumColuna)
 
     }
 
-    if(NumLinha  == 0 || NumColuna == 0 || NumLinha == getNumLinha()-1 || NumColuna == getNumColuna()-1)
-    {
-
-        Matriz[NumLinha][NumColuna] = '.';
-
-    }
 
 }
 
@@ -796,6 +790,6 @@ void Grade::CicloDeVida()
 
     ImprimeMatriz();
 
-    usleep(200000);
+    usleep(100000);
 
 }

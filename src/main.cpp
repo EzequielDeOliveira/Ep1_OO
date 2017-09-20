@@ -22,8 +22,9 @@ int main(int argc, char ** argv)
     int Parada = 1;
 
     system("clear||cls");
-
+    cout << "======================================" << endl;
     cout << " Bem vindo(a) ao Conway's Game of Life" << endl;
+    cout << "======================================" << endl;;
     cout << endl;
     cout << endl;
     cout << "O jogo se baseia em quatro regras" << endl;
@@ -117,6 +118,13 @@ int main(int argc, char ** argv)
     cout << endl;
     cout << "Digite a opção desejada: " ;
     cin >> TamanhoMatriz;
+    while(TamanhoMatriz < 1 ||TamanhoMatriz > 2)
+    {
+
+        cout << "Digite a opção desejada: " ;
+        cin >> TamanhoMatriz;
+    }
+
     if(TamanhoMatriz == 2)
     {
 
@@ -164,6 +172,7 @@ int main(int argc, char ** argv)
 
 
             campoPadrao.RecebeBlockCoordenada(8,2);
+
             campoPadrao.RecebeBlinkerCoordenada(8,12);
 
             campoPadrao.ReviveCelulaCoordenada(6,12);
