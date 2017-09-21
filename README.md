@@ -113,9 +113,9 @@ se for escolhido um Glider, durante a execução ser perguntado qual o estado in
 
 Logo após , na terceira tela , será perungtado o **Número** de geraçoes desejadas pelo usuario.
 
-NO caso de uma forma , sera perguntado a linha e a coluna a qual deseja inserir , mas se for o campo livre a cada 5 inserções sera perguntado se deseja continuar inserindo, se não , aperte **N** .
+No caso de uma forma , sera perguntado a linha e a coluna a qual deseja inserir , mas se for o campo livre a cada 5 inserções sera perguntado se deseja continuar inserindo, se não , aperte **N** .
 
-o jogo contaram com um numero de gerações inseridas pelo usuario, caso queira mais , o programa perguntará antes de finalizar.
+o jogo contará com um numero de gerações inseridas pelo usuario, caso queira mais , o programa perguntará antes de finalizar.
 
 
 
