@@ -10,7 +10,7 @@ Grade::Grade()
     int i;
     int j;
     setNumLinha(40+2);
-    setNumColuna(100+2);
+    setNumColuna(60+2);
 
     Matriz = (char**)malloc(getNumLinha()*sizeof(sizeof(char *)));
 
@@ -322,8 +322,8 @@ void Grade::RecebeBlinker()
   while(Linha > getNumLinha() || Linha <= 0 )
   {
 
-      cout << "Coordenada inexistente" << endl;
-      cout << "Insira uma coordenada valida" << endl;
+    cout << "Coordenada inexistente Coordenada inexistente ou a Coordenada não possui espaço" << endl;
+    cout << " Insira um valor valido" << endl;
       cout << "Linha: ";
       cin >> Linha;
 
@@ -333,9 +333,8 @@ void Grade::RecebeBlinker()
   cin >> Coluna;
   while(Linha > getNumLinha() || Coluna <= 1)
   {
-
-      cout << "Coordenada inexistente" << endl;
-      cout << "Insira uma coordenada valida" << endl;
+    cout << "Coordenada inexistente Coordenada inexistente ou a Coordenada não possui espaço" << endl;
+    cout << " Insira um valor valido" << endl;
       cout << "Coluna: ";
       cin >> Coluna;
 
@@ -366,8 +365,8 @@ void Grade::RecebeGlider()
     while(Linha > getNumLinha()-3 || Linha <= 2)
     {
 
-        cout << "Coordenada inexistente" << endl;
-        cout << "Insira uma coordenada valida" << endl;
+      cout << "Coordenada inexistente Coordenada inexistente ou a Coordenada não possui espaço" << endl;
+      cout << " Insira um valor valido" << endl;
         cout << "Linha: ";
         cin >> Linha;
 
@@ -378,8 +377,8 @@ void Grade::RecebeGlider()
     while(Coluna > getNumColuna()-3|| Coluna <= 2)
     {
 
-        cout << "Coordenada inexistente" << endl;
-        cout << "Insira uma coordenada valida" << endl;
+      cout << "Coordenada inexistente Coordenada inexistente ou a Coordenada não possui espaço" << endl;
+      cout << " Insira um valor valido" << endl;
         cout << "Coluna: ";
         cin >> Coluna;
 
