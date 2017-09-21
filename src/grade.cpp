@@ -234,7 +234,7 @@ void Grade::ReviveCelula()
 }
 
 
-void Grade::ReviveCelulaCoordenada(int linha,int coluna)
+void Grade::ReviveCelula(int linha,int coluna)
 {
     setCoordenadaX(linha);
     setCoordenadaY(coluna);
@@ -268,45 +268,45 @@ void Grade::ImprimeMatriz()
 
 void  Grade::RecebeBlock()
 {
-    int X ;
-    int Y ;
+    int Linha ;
+    int Coluna;
     cout << "posições inicias do block" << endl;
-    cout << "X: ";
-    cin >> X ;
-    while(X > getNumLinha() || X <= 1)
+    cout << "Linha: ";
+    cin >> Linha ;
+    while(Linha > getNumLinha() || Linha <= 1)
     {
 
         cout << "Coordenada inexistente Coordenada inexistente ou a Coordenada não possui espaço" << endl;
         cout << " Insira um valor valido" << endl;
-        cin >> X;
+        cin >> Linha;
 
     }
 
-    cout << "Y: ";
-    cin >> Y ;
-    while(Y > getNumLinha() || Y <= 1)
+    cout << "Coluna: ";
+    cin >> Coluna ;
+    while(Coluna > getNumColuna() || Coluna <= 1)
     {
 
         cout << "Coordenada inexistente ou a Coordenada não possui espaço" << endl;
         cout << " Insira um valor valido" << endl;
-        cin >> Y;
+        cin >> Coluna;
 
     }
 
 
 
 
-    block.PassaMatriz(Matriz , X-1 , Y-1);
+    block.PassaMatriz(Matriz ,Linha-1 , Coluna-1);
 
 
 }
 
-void  Grade::RecebeBlockCoordenada(int linha,int coluna)
+void  Grade::RecebeBlock(int linha,int coluna)
 {
-    int X = linha ;
-    int Y = coluna;
+    int Linha = linha ;
+    int Coluna = coluna;
 
-    block.PassaMatriz(Matriz , X-1 , Y-1);
+    block.PassaMatriz(Matriz , Linha-1 , Coluna-1);
 
 
 }
@@ -314,38 +314,39 @@ void  Grade::RecebeBlockCoordenada(int linha,int coluna)
 
 void Grade::RecebeBlinker()
 {
-    int X;
-    int Y;
-    cout << "Insira as coordenadas inicias do Blinker" << endl;
-    cout << "X: ";
-    cin >> X;
-    while(X > getNumLinha() - 3|| X <= 2 )
-    {
+  int Linha;
+  int Coluna;
+  cout << "Insira as coordenadas inicias do Blinker" << endl;
+  cout << "Linha: ";
+  cin >> Linha;
+  while(Linha > getNumLinha() || Linha <= 0 )
+  {
 
-        cout << "Coordenada inexistente" << endl;
-        cout << "Insira uma coordenada valida" << endl;
-        cout << "X: ";
-        cin >> X;
+      cout << "Coordenada inexistente" << endl;
+      cout << "Insira uma coordenada valida" << endl;
+      cout << "Linha: ";
+      cin >> Linha;
 
-    }
+  }
 
-    cout << "Y: ";
-    cin >> Y;
-    while(Y > getNumLinha() - 3 || Y <= 2 )
-    {
+  cout << "Coluna: ";
+  cin >> Coluna;
+  while(Linha > getNumLinha() || Coluna <= 1)
+  {
 
-        cout << "Coordenada inexistente" << endl;
-        cout << "Insira uma coordenada valida" << endl;
-        cout << "Y: ";
-        cin >> Y;
+      cout << "Coordenada inexistente" << endl;
+      cout << "Insira uma coordenada valida" << endl;
+      cout << "Coluna: ";
+      cin >> Coluna;
 
-    }
+  }
 
-    blinker.PassaMatriz(Matriz,X-1,Y-1);
+  blinker.PassaMatriz(Matriz,Linha-1,Coluna-1);
+
 
 }
 
-void Grade::RecebeBlinkerCoordenada(int linha,int coluna)
+void Grade::RecebeBlinker(int linha,int coluna)
 {
     int X = linha;
     int Y = coluna;
@@ -357,35 +358,35 @@ void Grade::RecebeBlinkerCoordenada(int linha,int coluna)
 
 void Grade::RecebeGlider()
 {
-    int X;
-    int Y;
+    int Linha;
+    int Coluna;
     cout << "Insira as coordenadas inicias do Glider" << endl;
-    cout << "X: ";
-    cin >> X;
-    while(X > getNumLinha()-3 || X <= 0)
+    cout << "Linha: ";
+    cin >> Linha;
+    while(Linha > getNumLinha()-3 || Linha <= 2)
     {
 
         cout << "Coordenada inexistente" << endl;
         cout << "Insira uma coordenada valida" << endl;
-        cout << "X: ";
-        cin >> X;
+        cout << "Linha: ";
+        cin >> Linha;
 
     }
 
-    cout << "Y: ";
-    cin >> Y;
-    while(Y > getNumLinha()-3 || Y <= 0)
+    cout << "Coluna: ";
+    cin >> Coluna;
+    while(Coluna > getNumColuna()-3|| Coluna <= 2)
     {
 
         cout << "Coordenada inexistente" << endl;
         cout << "Insira uma coordenada valida" << endl;
-        cout << "Y: ";
-        cin >> Y;
+        cout << "Coluna: ";
+        cin >> Coluna;
 
     }
 
 
-    glider.PassaMatriz(Matriz,X,Y);
+    glider.PassaMatriz(Matriz,Linha,Coluna);
 
 }
 

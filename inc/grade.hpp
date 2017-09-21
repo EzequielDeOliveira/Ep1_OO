@@ -34,13 +34,13 @@ public:
     void setCoordenadaY(int CoordenadaY);
 
     void ReviveCelula();
-    void ReviveCelulaCoordenada(int linha,int coluna);
+    void ReviveCelula(int linha,int coluna);
     void ImprimeMatriz();
 
     void RecebeBlock();
-    void RecebeBlockCoordenada(int linha,int coluna);
+    void RecebeBlock(int linha,int coluna);
     void RecebeBlinker();
-    void RecebeBlinkerCoordenada(int linha, int coluna);
+    void RecebeBlinker(int linha, int coluna);
     void RecebeGlider();
 
     int VerificaCelula(int NumLinha ,int NumColuna);

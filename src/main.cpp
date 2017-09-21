@@ -20,6 +20,7 @@ int main(int argc, char ** argv)
     int ModoDeJogo;
     int Geracao = 0;
     int Parada = 1;
+    int NumGeracoes;
 
     system("clear||cls");
     cout << "======================================" << endl;
@@ -149,10 +150,16 @@ int main(int argc, char ** argv)
     cout << endl;
     cout << "2 - Modo livre" << endl;
     cout << endl;
+    cout << "3 - Block" << endl;
+    cout << endl;
+    cout << "4 - Blinker" << endl;
+    cout << endl;
+    cout << "5 - Glider" << endl;
+    cout << endl;
     cout << "Modo: ";
     cin >> ModoDeJogo;
 
-    while(ModoDeJogo < 1 || ModoDeJogo > 2)
+    while(ModoDeJogo < 1 || ModoDeJogo > 5)
     {
 
         cout << "Digite um mode válido: ";
@@ -163,6 +170,20 @@ int main(int argc, char ** argv)
     system("clear||cls");
 
 
+    cout << "Insira o número de gerações desejadas: " ;
+    cin >> NumGeracoes;
+    while(NumGeracoes < 1){
+
+
+     cout << "Número de gerações e inválido" << endl;
+
+     cout << "Insira o número válido de grações desejadas: " ;
+     cin >> NumGeracoes;
+
+
+   }
+
+   system("clear||cls");
 
     if(ModoDeJogo == 1)
     {
@@ -171,56 +192,56 @@ int main(int argc, char ** argv)
         {
 
 
-            campoPadrao.RecebeBlockCoordenada(8,2);
+            campoPadrao.RecebeBlock(8,2);
 
-            campoPadrao.RecebeBlinkerCoordenada(8,12);
+            campoPadrao.RecebeBlinker(8,12);
 
-            campoPadrao.ReviveCelulaCoordenada(6,12);
+            campoPadrao.ReviveCelula(6,12);
 
-            campoPadrao.ReviveCelulaCoordenada(10,12);
-
-
-            campoPadrao.ReviveCelulaCoordenada(5,13);
+            campoPadrao.ReviveCelula(10,12);
 
 
-            campoPadrao.ReviveCelulaCoordenada(11,13);
+            campoPadrao.ReviveCelula(5,13);
 
 
-            campoPadrao.ReviveCelulaCoordenada(5,14);
+            campoPadrao.ReviveCelula(11,13);
 
 
-            campoPadrao.ReviveCelulaCoordenada(11,14);
+            campoPadrao.ReviveCelula(5,14);
 
 
-            campoPadrao.ReviveCelulaCoordenada(8,15);
+            campoPadrao.ReviveCelula(11,14);
 
 
-            campoPadrao.ReviveCelulaCoordenada(6,16);
+            campoPadrao.ReviveCelula(8,15);
 
 
-            campoPadrao.ReviveCelulaCoordenada(10,16);
+            campoPadrao.ReviveCelula(6,16);
 
-            campoPadrao.RecebeBlinkerCoordenada(8,18);
 
-            campoPadrao.ReviveCelulaCoordenada(8,18);
+            campoPadrao.ReviveCelula(10,16);
 
-            campoPadrao.RecebeBlinkerCoordenada(6,22);
+            campoPadrao.RecebeBlinker(8,18);
 
-            campoPadrao.RecebeBlinkerCoordenada(6,23);
+            campoPadrao.ReviveCelula(8,18);
 
-            campoPadrao.ReviveCelulaCoordenada(4,23);
+            campoPadrao.RecebeBlinker(6,22);
 
-            campoPadrao.ReviveCelulaCoordenada(8,23);
+            campoPadrao.RecebeBlinker(6,23);
 
-            campoPadrao.ReviveCelulaCoordenada(3,25);
+            campoPadrao.ReviveCelula(4,23);
 
-            campoPadrao.ReviveCelulaCoordenada(4,25);
+            campoPadrao.ReviveCelula(8,23);
 
-            campoPadrao.ReviveCelulaCoordenada(8,25);
+            campoPadrao.ReviveCelula(3,25);
 
-            campoPadrao.ReviveCelulaCoordenada(9,25);
+            campoPadrao.ReviveCelula(4,25);
 
-            campoPadrao.RecebeBlockCoordenada(6,36);
+            campoPadrao.ReviveCelula(8,25);
+
+            campoPadrao.ReviveCelula(9,25);
+
+            campoPadrao.RecebeBlock(6,36);
 
             campoPadrao.ImprimeMatriz();
 
@@ -246,11 +267,17 @@ int main(int argc, char ** argv)
 
                 Geracao++;
 
-                if(Geracao == 300)
+                if(Geracao == NumGeracoes)
                 {
 
                     cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
                     cin >> Parada;
+                    while(Parada < 0 || Parada > 1){
+
+                      cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                      cin >> Parada;
+
+                    }
                     Geracao = 0;
 
                 }
@@ -268,55 +295,55 @@ int main(int argc, char ** argv)
 
                 Grade campoVariavel(NumLinha,NumColuna);
 
-                campoVariavel.RecebeBlockCoordenada(8,2);
+                campoVariavel.RecebeBlock(8,2);
 
-                campoVariavel.RecebeBlinkerCoordenada(8,12);
+                campoVariavel.RecebeBlinker(8,12);
 
-                campoVariavel.ReviveCelulaCoordenada(6,12);
+                campoVariavel.ReviveCelula(6,12);
 
-                campoVariavel.ReviveCelulaCoordenada(10,12);
+                campoVariavel.ReviveCelula(10,12);
 
-                campoVariavel.ReviveCelulaCoordenada(5,13);
-
-
-                campoVariavel.ReviveCelulaCoordenada(11,13);
+                campoVariavel.ReviveCelula(5,13);
 
 
-                campoVariavel.ReviveCelulaCoordenada(5,14);
+                campoVariavel.ReviveCelula(11,13);
 
 
-                campoVariavel.ReviveCelulaCoordenada(11,14);
+                campoVariavel.ReviveCelula(5,14);
 
 
-                campoVariavel.ReviveCelulaCoordenada(8,15);
+                campoVariavel.ReviveCelula(11,14);
 
 
-                campoVariavel.ReviveCelulaCoordenada(6,16);
+                campoVariavel.ReviveCelula(8,15);
 
 
-                campoVariavel.ReviveCelulaCoordenada(10,16);
+                campoVariavel.ReviveCelula(6,16);
 
-                campoVariavel.RecebeBlinkerCoordenada(8,18);
 
-                campoVariavel.ReviveCelulaCoordenada(8,18);
+                campoVariavel.ReviveCelula(10,16);
 
-                campoVariavel.RecebeBlinkerCoordenada(6,22);
+                campoVariavel.RecebeBlinker(8,18);
 
-                campoVariavel.RecebeBlinkerCoordenada(6,23);
+                campoVariavel.ReviveCelula(8,18);
 
-                campoVariavel.ReviveCelulaCoordenada(4,23);
+                campoVariavel.RecebeBlinker(6,22);
 
-                campoVariavel.ReviveCelulaCoordenada(8,23);
+                campoVariavel.RecebeBlinker(6,23);
 
-                campoVariavel.ReviveCelulaCoordenada(3,25);
+                campoVariavel.ReviveCelula(4,23);
 
-                campoVariavel.ReviveCelulaCoordenada(4,25);
+                campoVariavel.ReviveCelula(8,23);
 
-                campoVariavel.ReviveCelulaCoordenada(8,25);
+                campoVariavel.ReviveCelula(3,25);
 
-                campoVariavel.ReviveCelulaCoordenada(9,25);
+                campoVariavel.ReviveCelula(4,25);
 
-                campoVariavel.RecebeBlockCoordenada(6,36);
+                campoVariavel.ReviveCelula(8,25);
+
+                campoVariavel.ReviveCelula(9,25);
+
+                campoVariavel.RecebeBlock(6,36);
 
                 campoVariavel.ImprimeMatriz();
 
@@ -341,17 +368,28 @@ int main(int argc, char ** argv)
 
                     Geracao++;
 
-                    if(Geracao == 300)
+                    if(Geracao == NumGeracoes)
                     {
 
                         cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
                         cin >> Parada;
+                        while(Parada < 0 || Parada > 1){
+
+                          cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                          cin >> Parada;
+                          while(Parada < 0 || Parada > 1){
+
+                            cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                            cin >> Parada;
+
+                          }
+
+                        }
                         Geracao = 0;
 
                     }
 
-                }
-                while(Parada);
+                }while(Parada);
 
             }
             else
@@ -375,6 +413,7 @@ int main(int argc, char ** argv)
             campoPadrao.ReviveCelula();
 
 
+
             do
             {
 
@@ -382,11 +421,23 @@ int main(int argc, char ** argv)
 
                 Geracao++;
 
-                if(Geracao == 300)
+                if(Geracao == NumGeracoes)
                 {
 
                     cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
                     cin >> Parada;
+                    while(Parada < 0 || Parada > 1){
+
+                      cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                      cin >> Parada;
+                      while(Parada < 0 || Parada > 1){
+
+                        cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                        cin >> Parada;
+
+                      }
+
+                    }
                     Geracao = 0;
 
                 }
@@ -409,21 +460,357 @@ int main(int argc, char ** argv)
 
                 Geracao++;
 
-                if(Geracao == 300)
+                if(Geracao == NumGeracoes)
                 {
 
                     cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
                     cin >> Parada;
+                    while(Parada < 0 || Parada > 1){
+
+                      cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                      cin >> Parada;
+                      while(Parada < 0 || Parada > 1){
+
+                        cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                        cin >> Parada;
+
+                      }
+
+                    }
                     Geracao = 0;
 
                 }
 
-            }
-            while(Parada);
+            }while(Parada);
 
         }
 
+    }else if(ModoDeJogo == 3){
+if(TamanhoMatriz == 1){
+
+campoPadrao.RecebeBlock();
+
+system("clear||cls");
+cout << endl;
+cout << "Pressione \"1\" para iniciar:  ";
+cin >> BotaoContinua;
+
+while(BotaoContinua != 1)
+{
+
+    cout << "Pressione \"1\" para iniciar:  ";
+    cin >> BotaoContinua;
+
+}
+
+system("clear||cls");
+
+
+do
+{
+
+    campoPadrao.CicloDeVida();
+
+    Geracao++;
+
+    if(Geracao == NumGeracoes)
+    {
+
+        cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+        cin >> Parada;
+        while(Parada < 0 || Parada > 1){
+
+          cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+          cin >> Parada;
+
+        }
+        Geracao = 0;
+
     }
+
+}while(Parada);
+
+
+
+
+}else if(TamanhoMatriz == 2){
+
+Grade campoVariavel(NumLinha , NumColuna);
+
+
+  campoVariavel.RecebeBlock();
+
+  system("clear||cls");
+  cout << endl;
+  cout << "Pressione \"1\" para iniciar:  ";
+  cin >> BotaoContinua;
+
+  while(BotaoContinua != 1)
+  {
+
+      cout << "Pressione \"1\" para iniciar:  ";
+      cin >> BotaoContinua;
+
+  }
+
+  system("clear||cls");
+
+  do
+  {
+
+      campoVariavel.CicloDeVida();
+
+      Geracao++;
+
+      if(Geracao == NumGeracoes)
+      {
+
+          cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+          cin >> Parada;
+          while(Parada < 0 || Parada > 1){
+
+            cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+            cin >> Parada;
+            while(Parada < 0 || Parada > 1){
+
+              cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+              cin >> Parada;
+
+            }
+
+          }
+          Geracao = 0;
+
+      }
+
+  }while(Parada);
+
+
+}
+
+
+    }else if(ModoDeJogo == 4){
+
+
+      if(TamanhoMatriz == 1){
+
+      campoPadrao.RecebeBlinker();
+
+      system("clear||cls");
+      cout << endl;
+      cout << "Pressione \"1\" para iniciar:  ";
+      cin >> BotaoContinua;
+
+      while(BotaoContinua != 1)
+      {
+
+          cout << "Pressione \"1\" para iniciar:  ";
+          cin >> BotaoContinua;
+
+      }
+
+      system("clear||cls");
+
+      do
+      {
+
+          campoPadrao.CicloDeVida();
+
+          Geracao++;
+
+          if(Geracao == NumGeracoes)
+          {
+
+              cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+              cin >> Parada;
+              while(Parada < 0 || Parada > 1){
+
+                cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                cin >> Parada;
+
+              }
+              Geracao = 0;
+
+          }
+
+      }while(Parada);
+
+
+
+
+      }else if(TamanhoMatriz == 2){
+
+      Grade campoVariavel(NumLinha , NumColuna);
+
+
+        campoVariavel.RecebeBlinker();
+
+        system("clear||cls");
+        cout << endl;
+        cout << "Pressione \"1\" para iniciar:  ";
+        cin >> BotaoContinua;
+
+        while(BotaoContinua != 1)
+        {
+
+            cout << "Pressione \"1\" para iniciar:  ";
+            cin >> BotaoContinua;
+
+        }
+
+        system("clear||cls");
+
+        do
+        {
+
+            campoVariavel.CicloDeVida();
+
+            Geracao++;
+
+            if(Geracao == NumGeracoes)
+            {
+
+                cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                cin >> Parada;
+                while(Parada < 0 || Parada > 1){
+
+                  cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                  cin >> Parada;
+                  while(Parada < 0 || Parada > 1){
+
+                    cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                    cin >> Parada;
+
+                  }
+
+                }
+                Geracao = 0;
+
+            }
+
+        }while(Parada);
+
+
+    }
+  }else if(ModoDeJogo == 5){
+
+    if(TamanhoMatriz == 1){
+
+    campoPadrao.RecebeGlider();
+
+    system("clear||cls");
+    cout << endl;
+    cout << "Pressione \"1\" para iniciar:  ";
+    cin >> BotaoContinua;
+
+    while(BotaoContinua != 1)
+    {
+
+        cout << "Pressione \"1\" para iniciar:  ";
+        cin >> BotaoContinua;
+
+    }
+
+    system("clear||cls");
+
+    do
+    {
+
+        campoPadrao.CicloDeVida();
+
+        Geracao++;
+
+        if(Geracao == NumGeracoes)
+        {
+
+            cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+            cin >> Parada;
+            while(Parada < 0 || Parada > 1){
+
+              cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+              cin >> Parada;
+              while(Parada < 0 || Parada > 1){
+
+                cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                cin >> Parada;
+                while(Parada < 0 || Parada > 1){
+
+                  cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                  cin >> Parada;
+
+                }
+
+              }
+
+            }
+            Geracao = 0;
+
+        }
+
+    }while(Parada);
+
+
+
+
+    }else if(TamanhoMatriz == 2){
+
+    Grade campoVariavel(NumLinha , NumColuna);
+
+
+      campoVariavel.RecebeGlider();
+
+      system("clear||cls");
+      cout << endl;
+      cout << "Pressione \"1\" para iniciar:  ";
+      cin >> BotaoContinua;
+
+      while(BotaoContinua != 1)
+      {
+
+          cout << "Pressione \"1\" para iniciar:  ";
+          cin >> BotaoContinua;
+
+      }
+
+      system("clear||cls");
+
+      do
+      {
+
+          campoVariavel.CicloDeVida();
+
+          Geracao++;
+
+          if(Geracao == NumGeracoes)
+          {
+
+              cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+              cin >> Parada;
+              while(Parada < 0 || Parada > 1){
+
+                cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                cin >> Parada;
+                while(Parada < 0 || Parada > 1){
+
+                  cout << "Para parar digite \"0\" para Continuar digite \"1\": " ;
+                  cin >> Parada;
+
+                }
+
+              }
+              Geracao = 0;
+
+          }
+
+      }while(Parada);
+
+
+
+
+
+  }
+
+}
 
 
     system("clear||cls");
